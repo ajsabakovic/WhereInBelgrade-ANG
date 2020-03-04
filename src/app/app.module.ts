@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
+import { BluePostComponent } from './blue-post/blue-post.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       NavComponent,
-      JumbotronComponent
+      JumbotronComponent,
+      BluePostComponent
    ],
    imports: [
       BrowserModule,
