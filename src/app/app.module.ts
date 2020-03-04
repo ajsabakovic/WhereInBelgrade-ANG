@@ -5,11 +5,13 @@ import {FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
+import { BluePostComponent } from './blue-post/blue-post.component';
 
 @NgModule({
    declarations: [
       AppComponent,
-      NavComponent
+      NavComponent,
+      BluePostComponent
    ],
    imports: [
       BrowserModule,
