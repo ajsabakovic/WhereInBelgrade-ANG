@@ -1,0 +1,46 @@
+.jumbotron{
+    min-height: 100vh;
+    background:  radial-gradient(transparent, rgba(0, 0, 0, .4)),
+                #fff url("../../assets/images/jumbotron.jpg") no-repeat center 50%/cover;       
+    display: flex;
+    align-items: center;
+}
+
+.okvir{
+    margin: 0 auto;
+    width: 80%;
+    height: 50vh;
+    border: 10px solid rgb(3, 48, 65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.6;
+}
+
+.sredina{
+    width: 95%;
+    height: 90%;
+    font-family: 'Parisienne', cursive;
+    background: rgb(3, 48, 65);
+    opacity: 0.6;
+    color: rgb(233, 233, 233);    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    font-weight: 700;
+    font-size: 100px;
+    width: 80%;
+    text-align: center;
+    color: rgb(233, 233, 233); 
+}
+
+.h1-first{
+    text-align: left;
+}
+.h1-second{
+    text-align: right;
+}
