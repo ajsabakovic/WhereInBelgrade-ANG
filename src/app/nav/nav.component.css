@@ -2,6 +2,7 @@ nav{
     background-color: rgb(3, 48, 65);
     font-family: 'Raleway', sans-serif;
     text-transform: uppercase;
+    position: fixed-top;
 }
 
 

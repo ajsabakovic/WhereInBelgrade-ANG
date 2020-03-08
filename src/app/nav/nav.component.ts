@@ -11,6 +11,7 @@ import { RegisterModalComponent } from '../register-modal/register-modal.compone
 })
 export class NavComponent implements OnInit {
   // register: RegisterModalComponent;
+  isCollapsed = true;
   @ViewChild(RegisterModalComponent) register;
   constructor() { }
   ngOnInit() {
@@ -19,5 +20,4 @@ export class NavComponent implements OnInit {
   openModalWithComponent() {
     this.register.ShowComponent();
   }
-
 }

@@ -1,10 +1,11 @@
+
 .card{
     font-family: 'Raleway', sans-serif;
     color:rgb(212, 211, 209);
     width: 90%;
     margin: 10px auto 50px;
     text-align: center;
-    background-color: rgb(3,48,65);
+    background-color: rgb(240, 97, 89);
     -webkit-box-shadow: 0px 4px 29px 0px rgba(0,0,0,0.44);
     -moz-box-shadow: 0px 4px 29px 0px rgba(0,0,0,0.44);
     box-shadow: 0px 4px 29px 0px rgba(0,0,0,0.44);
@@ -26,7 +27,7 @@
     transform: translateY(40%);
     font-weight: 300;
     color:rgb(212, 211, 209);
-    background-color: rgb(3,48,65);
+    background-color: rgb(240, 97, 89);
     border:none;
     padding:10px;
     -webkit-box-shadow: 0px 4px 29px 0px rgba(0,0,0,0.44);

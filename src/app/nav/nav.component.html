@@ -1,18 +1,18 @@
-<nav class="navbar navbar-expand-md">
-  <a class="navbar-brand" href="#">Ikonica</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-md ">
+  <a class="navbar-brand" href="#"><img src="../../assets/images/second.png" alt="HTML5 Icon"></a>
+  <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+  <div class="collapse navbar-collapse collapsed" id="navbarsExampleDefault" [collapse]="isCollapsed">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" href="#">Pocetna</a>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" dropdown>
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" 
-        aria-haspopup="true" aria-expanded="false">Dogadjaji</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
+        aria-haspopup="true" aria-expanded="false" dropdownToggle>Dogadjaji</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01" *dropdownMenu>
           <a class="dropdown-item" href="#">Zabava</a>
           <a class="dropdown-item" href="#">Festivali</a>
           <a class="dropdown-item" href="#">Kultura</a>
