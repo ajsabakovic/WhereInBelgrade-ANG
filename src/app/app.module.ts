@@ -7,13 +7,19 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
 import { BluePostComponent } from './blue-post/blue-post.component';
+import { BluePostsComponent } from './blue-posts/blue-posts.component';
+import { PinkPostsComponent } from './pink-posts/pink-posts.component';
+import { PinkPostComponent } from './pink-post/pink-post.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       NavComponent,
       JumbotronComponent,
-      BluePostComponent
+      BluePostComponent,
+      BluePostsComponent,
+      PinkPostsComponent,
+      PinkPostComponent
    ],
    imports: [
       BrowserModule,
