@@ -1,0 +1,69 @@
+#username,
+#password{
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    background-color: #022F40;
+    border: none;
+    border-bottom: 2px solid rgb(240,97,89);
+    font-size: 1.3em;
+    color: white;
+}
+
+#username{
+    margin-top: 30px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto 30px;
+}
+
+.btn-element{
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: rgb(240, 97, 89);
+    border: 1px solid rgb(240, 97, 89);
+    color: rgb(3, 48, 65);
+    transition: all .3s ease-in-out;
+    flex: 1;
+}
+
+.btn-element:first-child{
+    margin-right: 5px;
+}
+
+.btn-element:hover:enabled{
+    background-color: rgb(3, 48, 65);
+    color: rgb(240, 97, 89);
+}
+
+.modal-header{
+    background-color: rgb(2, 47, 64);
+    color:rgb(212, 211, 209);
+    font-family: 'Raleway', sans-serif;
+    border: none;
+    border-radius: unset;
+    
+}
+
+.btn-close{
+    color:rgb(212, 211, 209);
+    font-size: 2.2em;
+}
+
+.my-title{
+    font-weight: 800!important;
+    text-transform: uppercase!important;
+}
+
+.modal-body{
+    background-color: rgb(2, 47, 64);
+    color:rgb(212, 211, 209);
+    font-family: 'Raleway', sans-serif;
+    border-radius: unset;
+    border-top: 1px solid rgb(240, 97, 89);;
+}
