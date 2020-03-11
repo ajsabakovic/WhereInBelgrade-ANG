@@ -1,0 +1,30 @@
+.surround{
+    background: rgb(240,182,127);
+    text-align: center;
+    /* display: flex;
+    flex-direction: column; */
+}
+.posts{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
+    padding-bottom: 20px;
+}
+.naslov{
+    padding-top: 40px;
+    padding-bottom: 20px;
+    font-family: 'Raleway', sans-serif;
+    color:rgb(3,48,65);
+    font-weight: 900;
+    font-size: 2.5em;
+    text-shadow: 0 0 5px rgb(3,48,65);
+}
+
+@media(max-width:900px){
+    .posts{
+        flex-direction: column;
+        width: 70%;
+    }
+}

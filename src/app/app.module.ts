@@ -16,6 +16,8 @@ import { ErrorInteceptorProvider } from './_services/error.interceptor';
 import { BluePostsComponent } from './blue-posts/blue-posts.component';
 import { PinkPostsComponent } from './pink-posts/pink-posts.component';
 import { PinkPostComponent } from './pink-post/pink-post.component';
+import { YellowPostComponent } from './yellow-post/yellow-post.component';
+import { YellowPostsComponent } from './yellow-posts/yellow-posts.component';
 
 @NgModule({
    declarations: [
@@ -26,7 +28,9 @@ import { PinkPostComponent } from './pink-post/pink-post.component';
       RegisterModalComponent,
       BluePostsComponent,
       PinkPostsComponent,
-      PinkPostComponent
+      PinkPostComponent,
+      YellowPostComponent,
+      YellowPostsComponent
    ],
    imports: [
       BrowserModule,
