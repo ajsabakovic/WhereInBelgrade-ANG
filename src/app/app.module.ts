@@ -24,6 +24,7 @@ import { ContactComponent } from './contact/contact.component';
 import { EventsComponent } from './events/events.component';
 import { RouterModule } from '@angular/router';
 import { appRouter } from './routes';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
    declarations: [
@@ -41,7 +42,8 @@ import { appRouter } from './routes';
       EventsComponent,
       AboutComponent,
       ContactComponent,
-      EventsComponent
+      EventsComponent,
+      FooterComponent
    ],
    imports: [
       BrowserModule,
