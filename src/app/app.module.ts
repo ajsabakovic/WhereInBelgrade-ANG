@@ -16,6 +16,12 @@ import { ErrorInteceptorProvider } from './_services/error.interceptor';
 import { BluePostsComponent } from './blue-posts/blue-posts.component';
 import { PinkPostsComponent } from './pink-posts/pink-posts.component';
 import { PinkPostComponent } from './pink-post/pink-post.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { EventsComponent } from './events/events.component';
+import { RouterModule } from '@angular/router';
+import { appRouter } from './routes';
 
 @NgModule({
    declarations: [
@@ -26,7 +32,12 @@ import { PinkPostComponent } from './pink-post/pink-post.component';
       RegisterModalComponent,
       BluePostsComponent,
       PinkPostsComponent,
-      PinkPostComponent
+      PinkPostComponent,
+      HomeComponent,
+      EventsComponent,
+      AboutComponent,
+      ContactComponent,
+      EventsComponent
    ],
    imports: [
       BrowserModule,
@@ -36,7 +47,8 @@ import { PinkPostComponent } from './pink-post/pink-post.component';
       BrowserAnimationsModule,
       ModalModule.forRoot(),
       CollapseModule.forRoot(),
-      BsDropdownModule.forRoot()
+      BsDropdownModule.forRoot(),
+      RouterModule.forRoot(appRouter)
    ],
    providers: [
       ErrorInteceptorProvider
