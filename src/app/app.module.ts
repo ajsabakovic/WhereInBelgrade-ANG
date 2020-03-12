@@ -34,6 +34,7 @@ import { AboutJumbotronComponent } from './jumbotrons/about-jumbotron/about-jumb
 import { DogadjajKomponenteComponent } from './dogadjaj-komponente/dogadjaj-komponente.component';
 import { CustomDateComponent } from './custom-date/custom-date.component';
 import { PostoviComponent } from './postovi/postovi.component';
+import { EventDetailsComponent } from './dogadjaji/event-details/event-details.component';
 
 @NgModule({
    declarations: [
@@ -62,7 +63,8 @@ import { PostoviComponent } from './postovi/postovi.component';
       DogadjajKomponenteComponent,
       CustomDateComponent,
       CustomDateComponent,
-      PostoviComponent
+      PostoviComponent,
+      EventDetailsComponent
    ],
    imports: [
       BrowserModule,

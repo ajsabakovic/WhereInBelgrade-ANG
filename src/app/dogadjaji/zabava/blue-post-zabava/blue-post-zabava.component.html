@@ -3,5 +3,5 @@
   <div class="card-body">
     <h5 class="card-title">{{dogadjaj.naziv}}</h5>
   </div>
-  <button class="blue-card-button">Detaljnije</button>
+  <button class="blue-card-button" [routerLink]="['/events/', dogadjaj.dogadjajID]">Detaljnije</button>
 </div>
