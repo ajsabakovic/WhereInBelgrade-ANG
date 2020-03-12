@@ -26,6 +26,7 @@ import { RouterModule } from '@angular/router';
 import { appRouter } from './routes';
 import { FooterComponent } from './footer/footer.component';
 import { ContactJumbotronComponent } from './contact-jumbotron/contact-jumbotron.component';
+import { AboutJumbotronComponent } from './about-jumbotron/about-jumbotron.component';
 
 @NgModule({
    declarations: [
@@ -45,7 +46,8 @@ import { ContactJumbotronComponent } from './contact-jumbotron/contact-jumbotron
       ContactComponent,
       EventsComponent,
       FooterComponent,
-      ContactJumbotronComponent
+      ContactJumbotronComponent,
+      AboutJumbotronComponent
    ],
    imports: [
       BrowserModule,
