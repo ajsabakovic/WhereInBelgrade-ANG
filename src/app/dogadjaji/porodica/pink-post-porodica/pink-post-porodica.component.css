@@ -1,0 +1,49 @@
+
+.card{
+    font-family: 'Raleway', sans-serif;
+    color:rgb(212, 211, 209);
+    width: 90%;
+    margin: 10px auto 50px;
+    text-align: center;
+    background-color: rgb(240, 97, 89);
+    -webkit-box-shadow: 0px 4px 29px 0px rgba(0,0,0,0.44);
+    -moz-box-shadow: 0px 4px 29px 0px rgba(0,0,0,0.44);
+    box-shadow: 0px 4px 29px 0px rgba(0,0,0,0.44);
+    border-radius: unset;
+    border:none;
+}
+.card .card-img-top{
+    border-radius: unset;
+}
+
+.pink-card .card-title{
+    font-weight: 700;
+    font-size: 1.5em;
+}
+
+.pink-card-button{
+    width: 60%;
+    margin: 0 auto;
+    transform: translateY(40%);
+    font-weight: 300;
+    color:rgb(212, 211, 209);
+    background-color: rgb(240, 97, 89);
+    border:none;
+    padding:10px;
+    -webkit-box-shadow: 0px 4px 29px 0px rgba(0,0,0,0.44);
+    -moz-box-shadow: 0px 4px 29px 0px rgba(0,0,0,0.44);
+    box-shadow: 0px 4px 29px 0px rgba(0,0,0,0.44);
+    transition:all .3s ease-in-out;
+}
+
+.pink-card-button:hover{
+    -webkit-box-shadow: 0px 4px 29px 0px rgba(0,0,0,0.80);
+    -moz-box-shadow: 0px 4px 29px 0px rgba(0,0,0,0.80);
+    box-shadow: 0px 4px 29px 0px rgba(0,0,0,0.80);
+}
+
+@media(min-width:700px){
+    .card{
+        /* width: 30%; */
+    }
+}

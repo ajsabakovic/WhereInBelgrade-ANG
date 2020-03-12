@@ -1,0 +1,48 @@
+.surround{
+    background: rgb(240, 97, 89);
+    text-align: center;
+    /* display: flex;
+    flex-direction: column; */
+    min-height: 90vh;
+}
+.posts{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
+    padding-bottom: 20px;
+}
+.naslov{
+    padding-top: 60px;
+    padding-bottom: 50px;
+    font-family: 'Raleway', sans-serif;
+    color:rgb(3,48,65);
+    font-weight: 900;
+    font-size: 2.5em;
+    text-shadow: 0 0 5px rgb(3,48,65);
+}
+
+.nazalost{
+    color: rgb(3,48,65);
+    margin: 0 auto;
+    padding-top: 17%;;
+}
+
+.error{
+    margin: 10px auto 0;
+    display: flex;
+    width: 80%;
+
+}
+
+.error img{
+    width: 50%;
+}
+
+@media(max-width:900px){
+    .posts{
+        flex-direction: column;
+        width: 70%;
+    }
+}
