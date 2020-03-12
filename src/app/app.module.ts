@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import { ModalModule, CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
+import { ModalModule, CollapseModule, BsDropdownModule} from 'ngx-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +31,9 @@ import { BluePostsSportComponent } from './dogadjaji/sport/blue-posts-sport/blue
 import { PinkPostPorodicaComponent } from './dogadjaji/porodica/pink-post-porodica/pink-post-porodica.component';
 import { PinkPostsPorodicaComponent } from './dogadjaji/porodica/pink-posts-porodica/pink-posts-porodica.component';
 import { AboutJumbotronComponent } from './jumbotrons/about-jumbotron/about-jumbotron.component';
+import { DogadjajKomponenteComponent } from './dogadjaj-komponente/dogadjaj-komponente.component';
+import { CustomDateComponent } from './custom-date/custom-date.component';
+import { PostoviComponent } from './postovi/postovi.component';
 
 @NgModule({
    declarations: [
@@ -55,7 +58,11 @@ import { AboutJumbotronComponent } from './jumbotrons/about-jumbotron/about-jumb
       BluePostsSportComponent,
       PinkPostPorodicaComponent,
       PinkPostsPorodicaComponent,
-      AboutJumbotronComponent
+      AboutJumbotronComponent,
+      DogadjajKomponenteComponent,
+      CustomDateComponent,
+      CustomDateComponent,
+      PostoviComponent
    ],
    imports: [
       BrowserModule,
@@ -66,7 +73,8 @@ import { AboutJumbotronComponent } from './jumbotrons/about-jumbotron/about-jumb
       ModalModule.forRoot(),
       CollapseModule.forRoot(),
       BsDropdownModule.forRoot(),
-      RouterModule.forRoot(appRouter)
+      RouterModule.forRoot(appRouter),
+      BsDatepickerModule.forRoot()
    ],
    providers: [
       ErrorInteceptorProvider
