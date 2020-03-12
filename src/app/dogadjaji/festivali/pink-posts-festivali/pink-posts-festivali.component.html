@@ -1,0 +1,10 @@
+<div class="surround">
+  <h1 class="naslov">FESTIVALI</h1>
+  <div class="posts">
+    <div class="error" *ngIf="!hasEvents()">
+      <h2 class="nazalost" >Trenutno nema dogadjaja u ovoj kategoriji...</h2>
+      <img src="../../../assets/images/error.png" alt="error">
+    </div>
+    <app-pink-post-festivali *ngFor="let dogadjaj of dogadjaji" [dogadjaj]="dogadjaj" class="post"></app-pink-post-festivali>
+  </div>
+</div>
