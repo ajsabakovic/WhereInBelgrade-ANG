@@ -1,15 +1,13 @@
 .page-footer{
-    background-color:salmon;
+    background-color:rgb(240, 97, 89);
     font-family: 'Raleway', sans-serif;
-
-
-
-
+    justify-content: center;
 }
 .tim{
     color:rgb(3,48,65);
     font-weight: 800;
     font-family: 'Raleway', sans-serif;
-
-
+}
+p{
+    margin: 5px;
 }

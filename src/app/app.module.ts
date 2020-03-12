@@ -25,6 +25,7 @@ import { EventsComponent } from './events/events.component';
 import { RouterModule } from '@angular/router';
 import { appRouter } from './routes';
 import { FooterComponent } from './footer/footer.component';
+import { ContactJumbotronComponent } from './contact-jumbotron/contact-jumbotron.component';
 
 @NgModule({
    declarations: [
@@ -43,7 +44,8 @@ import { FooterComponent } from './footer/footer.component';
       AboutComponent,
       ContactComponent,
       EventsComponent,
-      FooterComponent
+      FooterComponent,
+      ContactJumbotronComponent
    ],
    imports: [
       BrowserModule,

@@ -1,0 +1,45 @@
+.jumbotron{
+    font-family: 'Parisienne', cursive;
+    min-height: 100vh;
+    background:  #fff url("../../assets/images/contact.png") no-repeat center 50%/cover;
+    margin-bottom: 0!important;
+}
+
+.okvir{
+    width: 50%;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 100px;
+}
+
+p{
+    font-weight: 700;
+    font-size: 50px;
+    width: 80%;
+    text-align: center;
+    color: rgb(233, 233, 233); 
+}
+@media(max-width:900px){
+    .okvir{
+        width: 70%;
+        height: 80vh;
+        margin-left: 50px;
+    }
+   p{
+        font-size: 40px;
+        text-align: left;
+    }
+}
+
+@media(max-width:770px){
+    .okvir{
+        width: 90%;
+        margin: none;
+    }
+   p{
+        font-weight: 600;
+        font-size: 40px;
+    }
+}
