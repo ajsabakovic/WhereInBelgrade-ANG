@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
-import { JumbotronComponent } from './jumbotron/jumbotron.component';
+import { JumbotronComponent } from './jumbotrons/jumbotron/jumbotron.component';
 import { BluePostZabavaComponent } from './dogadjaji/zabava/blue-post-zabava/blue-post-zabava.component';
 import { RegisterModalComponent } from './register-modal/register-modal.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,7 +21,7 @@ import { EventsComponent } from './events/events.component';
 import { RouterModule } from '@angular/router';
 import { appRouter } from './routes';
 import { FooterComponent } from './footer/footer.component';
-import { ContactJumbotronComponent } from './contact-jumbotron/contact-jumbotron.component';
+import { ContactJumbotronComponent } from './jumbotrons/contact-jumbotron/contact-jumbotron.component';
 import { PinkPostFestivaliComponent } from './dogadjaji/festivali/pink-post-festivali/pink-post-festivali.component';
 import { PinkPostsFestivaliComponent } from './dogadjaji/festivali/pink-posts-festivali/pink-posts-festivali.component';
 import { YellowPostKulturaComponent } from './dogadjaji/kultura/yellow-post-kultura/yellow-post-kultura.component';
@@ -30,6 +30,7 @@ import { BluePostSportComponent } from './dogadjaji/sport/blue-post-sport/blue-p
 import { BluePostsSportComponent } from './dogadjaji/sport/blue-posts-sport/blue-posts-sport.component';
 import { PinkPostPorodicaComponent } from './dogadjaji/porodica/pink-post-porodica/pink-post-porodica.component';
 import { PinkPostsPorodicaComponent } from './dogadjaji/porodica/pink-posts-porodica/pink-posts-porodica.component';
+import { AboutJumbotronComponent } from './jumbotrons/about-jumbotron/about-jumbotron.component';
 
 @NgModule({
    declarations: [
@@ -53,7 +54,8 @@ import { PinkPostsPorodicaComponent } from './dogadjaji/porodica/pink-posts-poro
       BluePostSportComponent,
       BluePostsSportComponent,
       PinkPostPorodicaComponent,
-      PinkPostsPorodicaComponent
+      PinkPostsPorodicaComponent,
+      AboutJumbotronComponent
    ],
    imports: [
       BrowserModule,
