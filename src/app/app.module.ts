@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import { ModalModule, CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
+import { ModalModule, CollapseModule, BsDropdownModule} from 'ngx-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +25,9 @@ import { EventsComponent } from './events/events.component';
 import { RouterModule } from '@angular/router';
 import { appRouter } from './routes';
 import { FooterComponent } from './footer/footer.component';
+import { DogadjajKomponenteComponent } from './dogadjaj-komponente/dogadjaj-komponente.component';
+import { CustomDateComponent } from './custom-date/custom-date.component';
+import { PostoviComponent } from './postovi/postovi.component';
 
 @NgModule({
    declarations: [
@@ -43,7 +46,11 @@ import { FooterComponent } from './footer/footer.component';
       AboutComponent,
       ContactComponent,
       EventsComponent,
-      FooterComponent
+      FooterComponent,
+      DogadjajKomponenteComponent,
+      CustomDateComponent,
+      CustomDateComponent,
+      PostoviComponent
    ],
    imports: [
       BrowserModule,
@@ -54,7 +61,8 @@ import { FooterComponent } from './footer/footer.component';
       ModalModule.forRoot(),
       CollapseModule.forRoot(),
       BsDropdownModule.forRoot(),
-      RouterModule.forRoot(appRouter)
+      RouterModule.forRoot(appRouter),
+      BsDatepickerModule.forRoot()
    ],
    providers: [
       ErrorInteceptorProvider
