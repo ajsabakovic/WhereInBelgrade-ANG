@@ -1,0 +1,91 @@
+.surround{
+    font-family: 'Raleway', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding-top: 80px;
+    background-color: rgb(3, 48, 65);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.upit{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+    font-size: larger;
+}
+
+
+input{
+    margin: 20px 0 10px;
+    height: 7vh;
+    color: rgb(3, 48, 65);
+    display: block;
+    text-align: center;
+    background-color: #022F40;
+    border: none;
+    border-bottom: 2px solid rgb(240,97,89);
+    font-size: 1.3em;
+    color: white;
+}
+
+textarea{
+    height: 20vh;
+    color: rgb(3, 48, 65);
+    display: block;
+    text-align: center;
+    background-color: #022F40;
+    border: none;
+    border: 2px solid rgb(240,97,89);
+    font-size: 1.3em;
+    color: white;
+}
+.textarea{
+    margin-top: 60px;
+}
+
+button{
+    margin: 50px auto;
+    width: 15%;
+    font-weight: 800;
+    text-transform: uppercase;
+    background-color: rgb(240, 97, 89);
+    border: 1px solid rgb(240, 97, 89);
+    color:rgb(3, 48, 65);
+    transition: all .3s ease-in-out;
+}
+button:hover{
+    background-color: rgb(3, 48, 65);
+    border: 1px solid rgb(240, 97, 89)!important;
+    color: rgb(240, 97, 89);
+}
+
+@media(max-width:770px){
+    .form-group{
+        width: 100%;
+    }
+   .upit{
+       width: 80%;
+   }
+}
+
+@media(max-width:670px){
+   button{
+       width: 80%;
+   }
+}
