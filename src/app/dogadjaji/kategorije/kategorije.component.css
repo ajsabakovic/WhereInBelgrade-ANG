@@ -1,0 +1,8 @@
+.surround{
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background: rgb(240, 97, 89);
+}

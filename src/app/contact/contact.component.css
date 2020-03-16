@@ -38,6 +38,9 @@ margin-bottom: 40px;
     font-size: larger;
 }
 
+.first{
+    padding-top: 30px;
+}
 
 input{
     margin: 20px 0 10px;
@@ -83,12 +86,12 @@ button:hover{
     color: rgb(240, 97, 89);
 }
 
-@media(max-width:770px){
+@media(max-width:970px){
     .form-group{
         width: 100%;
     }
    .upit{
-       width: 80%;
+       width: 70%;
    }
    form{
        width: 100%;
@@ -97,6 +100,6 @@ button:hover{
 
 @media(max-width:670px){
    button{
-       width: 80%;
+       width: 70%;
    }
 }

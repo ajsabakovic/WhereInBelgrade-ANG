@@ -31,10 +31,17 @@ import { BluePostsSportComponent } from './dogadjaji/sport/blue-posts-sport/blue
 import { PinkPostPorodicaComponent } from './dogadjaji/porodica/pink-post-porodica/pink-post-porodica.component';
 import { PinkPostsPorodicaComponent } from './dogadjaji/porodica/pink-posts-porodica/pink-posts-porodica.component';
 import { AboutJumbotronComponent } from './jumbotrons/about-jumbotron/about-jumbotron.component';
-import { DogadjajKomponenteComponent } from './dogadjaj-komponente/dogadjaj-komponente.component';
+import { FestivalKategorijaComponent } from './kategorije/festival-kategorija/festival-kategorija.component';
 import { CustomDateComponent } from './custom-date/custom-date.component';
 import { PostoviComponent } from './postovi/postovi.component';
 import { EventDetailsComponent } from './dogadjaji/event-details/event-details.component';
+import { KategorijeComponent } from './dogadjaji/kategorije/kategorije.component';
+import { SportKategorijaComponent } from './kategorije/sport-kategorija/sport-kategorija.component';
+import { PorodicaKategorijaComponent } from './kategorije/porodica-kategorija/porodica-kategorija.component';
+import { KulturaKategorijaComponent } from './kategorije/kultura-kategorija/kultura-kategorija.component';
+import { ZabavaKategorijaComponent } from './kategorije/zabava-kategorija/zabava-kategorija.component';
+import { EventsJumbotronComponent } from './jumbotrons/events-jumbotron/events-jumbotron.component';
+import { WholeEventComponent } from './dogadjaji/whole-event/whole-event.component';
 
 @NgModule({
    declarations: [
@@ -60,11 +67,18 @@ import { EventDetailsComponent } from './dogadjaji/event-details/event-details.c
       PinkPostPorodicaComponent,
       PinkPostsPorodicaComponent,
       AboutJumbotronComponent,
-      DogadjajKomponenteComponent,
+      FestivalKategorijaComponent,
       CustomDateComponent,
       CustomDateComponent,
       PostoviComponent,
-      EventDetailsComponent
+      EventDetailsComponent,
+      KategorijeComponent,
+      SportKategorijaComponent,
+      PorodicaKategorijaComponent,
+      KulturaKategorijaComponent,
+      ZabavaKategorijaComponent,
+      EventsJumbotronComponent,
+      WholeEventComponent
    ],
    imports: [
       BrowserModule,

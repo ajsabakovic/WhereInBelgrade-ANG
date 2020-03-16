@@ -41,7 +41,6 @@ nav button{
     color: rgb(240, 97, 89);
     border: 1px solid rgb(240, 97, 89);
     transition: all .3s ease-in-out;
-
 }
 
 .btn-second:hover ~ .btn-first{
