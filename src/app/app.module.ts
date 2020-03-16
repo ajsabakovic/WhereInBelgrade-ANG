@@ -42,6 +42,7 @@ import { KulturaKategorijaComponent } from './kategorije/kultura-kategorija/kult
 import { ZabavaKategorijaComponent } from './kategorije/zabava-kategorija/zabava-kategorija.component';
 import { EventsJumbotronComponent } from './jumbotrons/events-jumbotron/events-jumbotron.component';
 import { WholeEventComponent } from './dogadjaji/whole-event/whole-event.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
    declarations: [
@@ -93,7 +94,8 @@ import { WholeEventComponent } from './dogadjaji/whole-event/whole-event.compone
       BsDatepickerModule.forRoot()
    ],
    providers: [
-      ErrorInteceptorProvider
+      ErrorInteceptorProvider,
+      [DatePipe]
    ],
    bootstrap: [
       AppComponent

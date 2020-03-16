@@ -1,7 +1,7 @@
-<div class="card blue-card">
+<div class="card pink-card">
   <img src="../../assets/images/template-img.jpg" class="card-img-top">
   <div class="card-body">
     <h5 class="card-title">{{dogadjaj.naziv}}</h5>
   </div>
-  <button class="pink-card-button">Detaljnije</button>
+  <button class="pink-card-button" [routerLink]="['/events/', dogadjaj.dogadjajID]">Detaljnije</button>
 </div>
