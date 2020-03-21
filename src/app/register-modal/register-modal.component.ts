@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, TemplateRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, TemplateRef, Input } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { AuthService } from '../_services/auth.service';
 import { AlertifyService } from '../_services/alertify.service';
@@ -10,6 +10,7 @@ import { AlertifyService } from '../_services/alertify.service';
 })
 export class RegisterModalComponent implements OnInit {
   modalRef: BsModalRef;
+  provera: boolean;
 
   constructor(private modalService: BsModalService, private authService: AuthService,
     private alertify: AlertifyService) {}
@@ -51,5 +52,13 @@ export class RegisterModalComponent implements OnInit {
     localStorage.removeItem('token');
     this.alertify.message("Logged out!");
     // this.router.navigate(['/home']);
+  }
+
+  registration(){
+    return this.provera;
+  }
+
+  registrationToggle(){
+    this.provera = !this.provera;
   }
 }

@@ -17,7 +17,8 @@ export class NavComponent implements OnInit {
   ngOnInit() {
   }
 
-  openModalWithComponent() {
+  openModalWithComponent(provera: boolean) {
+    this.register.provera = provera;
     this.register.ShowComponent();
   }
 }

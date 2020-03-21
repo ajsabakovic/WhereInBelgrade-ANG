@@ -1,24 +1,57 @@
 <ng-template #template>
-  <div class="modal-header">
-    <h4 class="modal-title my-title pull-left">Register Now</h4>
-    <button type="button" class="close pull-right btn-close" aria-label="Close" (click)="modalRef.hide()">
-      <span aria-hidden="true">&times;</span>
-    </button>
+  <div class="surround" *ngIf="registration()">
+    <div class="modal-header">
+      <h4 class="modal-title my-title pull-left">Register Now</h4>
+      <button type="button" class="close pull-right btn-close" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form #registerForm="ngForm" (ngSubmit)="register()">
+        <div class="form-group">
+          <input type="text" required class="form-control input-element" id="username" class="username" name="username"
+          placeholder="Username" [(ngModel)]="user.username">
+        </div>
+        <div class="form-group">
+          <input type="password" required class="form-control input-element" id="password" class="password" name="password" 
+          placeholder="Password" [(ngModel)]="user.password">
+        </div>
+        <div class="form-group buttons">
+          <button [disabled]="!registerForm.valid" type="submit" class="btn btn-element">Click to register</button>
+          <button type="button" class="btn btn-element" (click)="modalRef.hide()">Cancel</button>
+        </div>
+        <div class="form-group">
+          <p class="my-small">Već ste registrovani? Kliknite <a href=# (click)="registrationToggle()">ovde</a> za login</p>
+        </div>
+      </form>
+    </div>
   </div>
-  <div class="modal-body">
-    <form #registerForm="ngForm" (ngSubmit)="register()">
-      <div class="form-group">
-        <input type="text" required class="form-control input-element" id="username" class="username" name="username"
-         placeholder="Username" [(ngModel)]="user.username">
-      </div>
-      <div class="form-group">
-        <input type="password" required class="form-control input-element" id="password" class="password" name="password" 
-        placeholder="Password" [(ngModel)]="user.password">
-      </div>
-      <div class="form-group buttons">
-        <button [disabled]="!registerForm.valid" type="submit" class="btn btn-element">Click to register</button>
-        <button type="button" class="btn btn-element" (click)="modalRef.hide()">Cancel</button>
-      </div>
-    </form>
+
+  <div class="surround" *ngIf="!registration()">
+    <div class="modal-header">
+      <h4 class="modal-title my-title pull-left">Login Now</h4>
+      <button type="button" class="close pull-right btn-close" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form #registerForm="ngForm" (ngSubmit)="login()">
+        <div class="form-group">
+          <input type="text" required class="form-control input-element" id="username" class="username" name="username"
+          placeholder="Username" [(ngModel)]="user.username">
+        </div>
+        <div class="form-group">
+          <input type="password" required class="form-control input-element" id="password" class="password" name="password" 
+          placeholder="Password" [(ngModel)]="user.password">
+        </div>
+        <div class="form-group buttons">
+          <button [disabled]="!registerForm.valid" type="submit" class="btn btn-element">Click to login</button>
+          <button type="button" class="btn btn-element" (click)="modalRef.hide()">Cancel</button>
+        </div>
+        <div class="form-group">
+          <p class="my-small">Niste registrovani? Kliknite <a href=# (click)="registrationToggle()">ovde</a> za registraciju</p>
+        </div>
+      </form>
+    </div>
   </div>
 </ng-template>

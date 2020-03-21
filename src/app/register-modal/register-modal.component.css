@@ -65,5 +65,20 @@
     color:rgb(212, 211, 209);
     font-family: 'Raleway', sans-serif;
     border-radius: unset;
-    border-top: 1px solid rgb(240, 97, 89);;
+    border-top: 1px solid rgb(240, 97, 89);
+}
+
+.my-small{
+    background-color: rgb(2, 47, 64);
+    color:rgb(212, 211, 209);
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9em;
+    border-radius: unset;
+    /* border-bottom: 1px solid rgb(240, 97, 89); */
+}
+.my-small a{
+    color: rgb(240, 97, 89);    
 }
