@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { CustomDateComponent } from './custom-date.component';
+import { DogadjajKategorijeComponent } from './dogadjajKategorije.component';
 
-describe('CustomDateComponent', () => {
-  let component: CustomDateComponent;
-  let fixture: ComponentFixture<CustomDateComponent>;
+describe('DogadjajKategorijeComponent', () => {
+  let component: DogadjajKategorijeComponent;
+  let fixture: ComponentFixture<DogadjajKategorijeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CustomDateComponent ]
+      declarations: [ DogadjajKategorijeComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CustomDateComponent);
+    fixture = TestBed.createComponent(DogadjajKategorijeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

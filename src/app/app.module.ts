@@ -43,6 +43,7 @@ import { ZabavaKategorijaComponent } from './kategorije/zabava-kategorija/zabava
 import { EventsJumbotronComponent } from './jumbotrons/events-jumbotron/events-jumbotron.component';
 import { WholeEventComponent } from './dogadjaji/whole-event/whole-event.component';
 import { DatePipe } from '@angular/common';
+import { DogadjajKategorijeComponent } from './dogadjaji/dogadjajKategorije/dogadjajKategorije.component';
 
 @NgModule({
    declarations: [
@@ -79,7 +80,8 @@ import { DatePipe } from '@angular/common';
       KulturaKategorijaComponent,
       ZabavaKategorijaComponent,
       EventsJumbotronComponent,
-      WholeEventComponent
+      WholeEventComponent,
+      DogadjajKategorijeComponent
    ],
    imports: [
       BrowserModule,
