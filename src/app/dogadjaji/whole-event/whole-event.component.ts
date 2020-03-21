@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Dogadjaj } from 'src/app/_model/dogadjaj';
 
 @Component({
   selector: 'app-whole-event',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./whole-event.component.css']
 })
 export class WholeEventComponent implements OnInit {
+  @Input()dogadjaj: Dogadjaj;
 
   constructor() { }
 
