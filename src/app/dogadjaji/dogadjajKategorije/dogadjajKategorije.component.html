@@ -1,7 +1,13 @@
 <div class="pozadina">
-  <div class="error" *ngIf="!hasEvents()">
-    <h2 class="nazalost" >Trenutno nema dogadjaja u ovoj kategoriji...</h2>
-    <img src="../../../assets/images/error.png" alt="error">
+  <h1 class="title">Predstojeći događaji</h1>
+  <div class="box">
+    
+    <div class="error" *ngIf="!hasEvents()">
+      <h2 class="nazalost" >Trenutno nema dogadjaja u ovoj kategoriji...</h2>
+      <img src="../../../assets/images/error.png" alt="error">
+    </div>
+    <!-- <div class="proslo" *ngIf="!selectedCategory()"> -->
+      <app-whole-event *ngFor="let dogadjaj of dogadjaji" [dogadjaj]="dogadjaj"></app-whole-event>
+    <!-- </div> -->
   </div>
-  <app-whole-event *ngFor="let dogadjaj of dogadjaji" [dogadjaj]="dogadjaj"></app-whole-event>
 </div>

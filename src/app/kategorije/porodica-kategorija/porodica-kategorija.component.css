@@ -2,7 +2,7 @@
     margin-top: 20px;
     width: 70%;
     height:35vh;
-    border: 10px solid rgba(3, 48, 65,.7);
+    border: 10px solid rgba(3, 48, 65,.8);
     display: flex;
     align-items: center;
     min-width: 280px;
@@ -21,7 +21,7 @@
     /* flex-direction: column; */
     /* justify-content: center; */
     align-items: center;
-    background: rgba(3, 48, 65,.7) url("../../../assets/images/categories/porodica.png") no-repeat center 50%/cover; 
+    background: rgba(3, 48, 65,.8) url("../../../assets/images/categories/porodica.png") no-repeat center 50%/cover; 
     -webkit-box-shadow: inset 0px 0px 5px 2px rgba(3,48,65,0.61);
     -moz-box-shadow: inset 0px 0px 5px 2px rgba(3,48,65,0.61);
     box-shadow: inset 0px 0px 5px 2px rgba(3,48,65,0.61);
@@ -32,4 +32,8 @@ h1{
     font-weight: 600;
     font-size: 40px;
     color: rgb(233, 233, 233); 
+}
+
+.sredina:hover{
+    background: rgba(240, 97, 89,0.7) url("../../../assets/images/categories/porodica.png") no-repeat center 50%/cover;
 }

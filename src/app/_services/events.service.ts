@@ -11,7 +11,12 @@ export class EventsService {
   baseUrl = environment.apiUrl + '/kategorija/';
   constructor(private http: HttpClient) { }
 
-  getEventsByCategory(kategorija): Observable<Dogadjaj[]>{
+  getEventsByCategory(kategorija: any): Observable<Dogadjaj[]>{
     return this.http.get<Dogadjaj[]>(this.baseUrl + kategorija + '/dogadjaji');
+  }
+
+  // promeni metodu u API controlleru
+  getAll(): Observable<Dogadjaj[]>{
+    return this.http.get<Dogadjaj[]>(this.baseUrl + 'dogadjaji');
   }
 }

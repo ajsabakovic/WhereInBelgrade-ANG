@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-sport-kategorija',
@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sport-kategorija.component.css']
 })
 export class SportKategorijaComponent implements OnInit {
+  @Output() kategorija = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  metoda(kategorija: string) {
+    this.kategorija.emit(kategorija);
+  }
 }

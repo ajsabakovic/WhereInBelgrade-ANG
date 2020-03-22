@@ -9,10 +9,16 @@ import { Dogadjaj } from '../_model/dogadjaj';
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent implements OnInit {
+  kategorija: string;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  getEvents(kategorija: string) {
+    console.log(kategorija);
+    this.kategorija = kategorija;
   }
 
 }
