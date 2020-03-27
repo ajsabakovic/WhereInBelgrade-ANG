@@ -19,13 +19,16 @@
   <div class="slika">
   </div>
   <div class="detalji">
-    <h5 class="naslov">{{dogadjaj.naziv}}</h5>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">{{dogadjaj.lokacija.naziv}}</li>
-      <li class="list-group-item">{{dogadjaj.lokacija.ulica}} {{dogadjaj.lokacija.brojUlice}}</li>
-      <li class="list-group-item">{{getOnlyDate(dogadjaj.datumPocetka)}}</li>
-    </ul>
-    <button class="btn my-2 my-sm-0 btn-second" type="submit">Detaljnije</button>
-    <!-- <i class="far fa-heart"></i> -->
+    <div class="up">
+      <h5 class="naslov">{{dogadjaj.naziv}}</h5>
+    </div>
+    <div class="down">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><i class="fa fa-building"></i>{{dogadjaj.lokacija.naziv}}</li>
+        <li class="list-group-item"><i class="fa fa-map-marker"></i>{{dogadjaj.lokacija.ulica}} {{dogadjaj.lokacija.brojUlice}}</li>
+        <li class="list-group-item"><i class="fa fa-calendar"></i>{{getOnlyDate(dogadjaj.datumPocetka)}}</li>
+      </ul>
+      <button class="btn my-2 my-sm-0 btn-second" type="submit">Detaljnije</button>
+    </div>
   </div>
 </div>

@@ -17,7 +17,7 @@ export class DogadjajKategorijeComponent implements OnInit {
   ngOnInit() {
       this.loadEvents();
   }
-  
+
   ngOnChanges(changes: SimpleChanges) {
     console.log(this.kategorija);
     this.selectedCategory();
