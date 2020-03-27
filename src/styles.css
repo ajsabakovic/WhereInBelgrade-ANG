@@ -17,7 +17,7 @@ html {
   }
 
   body::-webkit-scrollbar {
-    width: 100px;
+    width: 20px;
   }
 
   body {
