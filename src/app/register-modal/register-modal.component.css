@@ -1,3 +1,7 @@
+.modal-content{
+    border-bottom: none;
+}
+
 #username,
 #password{
     width: 80%;
@@ -9,6 +13,13 @@
     border-bottom: 2px solid rgb(240,97,89);
     font-size: 1.3em;
     color: white;
+    transition: all .4s ease-in-out;
+}
+
+#username:focus,
+#password:focus{
+    color: rgb(240,97,89);
+    border-color: rgba(240,97,89, .6);
 }
 
 #username{
@@ -66,6 +77,7 @@
     font-family: 'Raleway', sans-serif;
     border-radius: unset;
     border-top: 1px solid rgb(240, 97, 89);
+    border-bottom: 30px solid rgb(240, 97, 89);
 }
 
 .my-small{
@@ -81,4 +93,14 @@
 }
 .my-small a{
     color: rgb(240, 97, 89);    
+    cursor: pointer;
+}
+
+input{
+    transition: all .4s ease-in-out;
+}
+
+input:focus{
+    color: rgb(240,97,89);
+    border-color: rgba(240,97,89, .6);
 }

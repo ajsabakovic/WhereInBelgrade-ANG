@@ -37,6 +37,7 @@ export class RegisterModalComponent implements OnInit {
   login(){
     this.authService.login(this.user).subscribe(next => {
       this.alertify.success('Logged in successfully');
+      this.modalRef.hide();
     }, error => {
       this.alertify.error(error);
     }, () => {

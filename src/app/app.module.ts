@@ -44,6 +44,7 @@ import { EventsJumbotronComponent } from './jumbotrons/events-jumbotron/events-j
 import { WholeEventComponent } from './dogadjaji/whole-event/whole-event.component';
 import { DatePipe } from '@angular/common';
 import { DogadjajKategorijeComponent } from './dogadjaji/dogadjajKategorije/dogadjajKategorije.component';
+import { AlertifyService } from './_services/alertify.service';
 
 @NgModule({
    declarations: [
@@ -97,6 +98,7 @@ import { DogadjajKategorijeComponent } from './dogadjaji/dogadjajKategorije/doga
    ],
    providers: [
       ErrorInteceptorProvider,
+      AlertifyService,
       [DatePipe]
    ],
    bootstrap: [

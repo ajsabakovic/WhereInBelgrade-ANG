@@ -20,8 +20,6 @@ export class BluePostsZabavaComponent implements OnInit {
   loadEvents(){
     this.eventService.getEventsByCategory('zabava').subscribe((dogadjaji: Dogadjaj[]) => {
       this.dogadjaji = dogadjaji;
-    }, error => {
-      this.alertify.error(error);
     });
   }
 

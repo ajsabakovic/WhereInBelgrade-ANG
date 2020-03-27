@@ -52,3 +52,18 @@ nav button{
     background-color: rgb(240, 97, 89);
     color:rgb(0, 47, 65);
 }
+
+.dropdown-toggle,
+.dropdown-item{
+    cursor: pointer;
+}
+
+.dropdown-menu{
+    left: -6px!important;
+    color: rgb(0, 47, 65);
+}
+
+.dropdown-item:active{
+    background-color:rgb(78, 205, 196);
+    color: white;
+}

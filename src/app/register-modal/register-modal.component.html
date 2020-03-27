@@ -21,7 +21,7 @@
           <button type="button" class="btn btn-element" (click)="modalRef.hide()">Cancel</button>
         </div>
         <div class="form-group">
-          <p class="my-small">Već ste registrovani? Kliknite <a href=# (click)="registrationToggle()">ovde</a> za login</p>
+          <p class="my-small">Već ste registrovani? Kliknite <a (click)="registrationToggle()">ovde</a> za login</p>
         </div>
       </form>
     </div>
@@ -49,7 +49,7 @@
           <button type="button" class="btn btn-element" (click)="modalRef.hide()">Cancel</button>
         </div>
         <div class="form-group">
-          <p class="my-small">Niste registrovani? Kliknite <a href=# (click)="registrationToggle()">ovde</a> za registraciju</p>
+          <p class="my-small">Niste registrovani? Kliknite <a (click)="registrationToggle()">ovde</a> za registraciju</p>
         </div>
       </form>
     </div>

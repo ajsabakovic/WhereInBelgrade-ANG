@@ -1,36 +1,51 @@
 <nav class="navbar navbar-expand-md fixed-top">
-  <a class="navbar-brand" href="#"><img src="../../assets/images/second.png" alt="HTML5 Icon"></a>
-  <!-- <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button> -->
-
-  <div class="collapse navbar-collapse collapsed" id="navbarsExampleDefault" [collapse]="isCollapsed">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item" routerLinkActive="active" >
-        <a class="nav-link" [routerLink]="['/home']">Početna</a>
-      </li>
-      <li class="nav-item dropdown" routerLinkActive="active"  dropdown>
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" 
-        aria-haspopup="true" aria-expanded="false" dropdownToggle [routerLink]="['/events']">Događaji</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01" *dropdownMenu>
-          <a class="dropdown-item" href="#">Zabava</a>
-          <a class="dropdown-item" href="#">Festivali</a>
-          <a class="dropdown-item" href="#">Kultura</a>
-          <a class="dropdown-item" href="#">Porodica</a>
-          <a class="dropdown-item" href="#">Sport</a>
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['/home']"><img src="../../assets/images/second.png" alt="HTML5 Icon"></a>
+    <!-- <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button> -->
+  
+    <div class="collapse navbar-collapse collapsed" id="navbarsExampleDefault" [collapse]="isCollapsed">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" routerLinkActive="active" >
+          <a class="nav-link" [routerLink]="['/home']">Početna</a>
+        </li>
+        <li class="nav-item dropdown" routerLinkActive="active"  dropdown>
+          <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" 
+          aria-haspopup="true" aria-expanded="false" dropdownToggle [routerLink]="['/events']">Događaji</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01" *dropdownMenu>
+            <a class="dropdown-item" href="#">Zabava</a>
+            <a class="dropdown-item" href="#">Festivali</a>
+            <a class="dropdown-item" href="#">Kultura</a>
+            <a class="dropdown-item" href="#">Porodica</a>
+            <a class="dropdown-item" href="#">Sport</a>
+          </div>
+        </li>
+        <li class="nav-item" routerLinkActive="active" >
+          <a class="nav-link" [routerLink]="['/about']" >O nama</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" >
+          <a class="nav-link" [routerLink]="['/contact']">Kontakt</a>
+        </li>
+      </ul>
+      <form #loginForm="ngForm" class="form-inline my-2 my-lg-0" *ngIf="!loggedIn()">
+        <button class="btn my-2 my-sm-0 btn-first mr-2" type="submit" (click)="openModalWithComponent(true)">Register</button>
+        <button class="btn my-2 my-sm-0 btn-second" type="submit" (click)="openModalWithComponent(false)">Login</button>
+      </form>
+  
+      <div class="dropdown" *ngIf="loggedIn()" dropdown>
+        <a class="dropdown-toggle text-light" dropdownToggle>
+          Welcome, {{authService.decodedToken?.unique_name}}
+        </a>
+        <div class="dropdown-menu" *dropdownMenu>
+          <a class="dropdown-item" *ngIf="!isAdmin()"><i class="fa fa-heart mr-2"></i>Favourites</a>
+          <a class="dropdown-item" *ngIf="isAdmin()"><i class="fa fa-calendar mr-2"></i>Add Event</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" (click)="logOut()"><i class="fa fa-sign-out mr-2"></i>Logout</a>
         </div>
-      </li>
-      <li class="nav-item" routerLinkActive="active" >
-        <a class="nav-link" [routerLink]="['/about']" >O nama</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active" >
-        <a class="nav-link" [routerLink]="['/contact']">Kontakt</a>
-      </li>
-    </ul>
-    <form #loginForm="ngForm" class="form-inline my-2 my-lg-0">
-      <button class="btn my-2 my-sm-0 btn-first mr-2" type="submit" (click)="openModalWithComponent(true)">Register</button>
-      <button class="btn my-2 my-sm-0 btn-second" type="submit" (click)="openModalWithComponent(false)">Login</button>
-    </form>
+      </div>
+    </div>
+
   </div>
 </nav>
 <app-register-modal></app-register-modal>

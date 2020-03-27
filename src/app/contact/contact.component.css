@@ -64,7 +64,16 @@ input{
     border-bottom: 2px solid rgb(240,97,89);
     font-size: 1.3em;
     color: white;
+    transition: all .4s ease-in-out;
 }
+
+input:focus,
+textarea:focus{
+    color: rgb(240,97,89);
+    border-color: rgba(240,97,89, .6);
+}
+
+
 
 textarea{
     height: 20vh;
@@ -76,6 +85,8 @@ textarea{
     border: 2px solid rgb(240,97,89);
     font-size: 1.3em;
     color: white;
+    transition: all .4s ease-in-out;
+
 }
 .textarea{
     margin-top: 60px;

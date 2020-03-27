@@ -9,6 +9,45 @@ html,body{
     overflow-x: hidden;
 }
 
-body{
-    
+html {
+    --scrollbarBG: rgb(2, 47, 64);
+    --thumbBG: rgb(238, 99, 82);
+    /* --scrollbarBG: rgb(238, 99, 82);
+    --thumbBG: rgb(2, 47, 64); */
+  }
+
+  body::-webkit-scrollbar {
+    width: 100px;
+  }
+
+  body {
+    scrollbar-shadow-color: rgb(238, 99, 82);
+    -webkit-scrollbar-shadow-color: rgb(238, 99, 82);
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+  }
+
+  body::-webkit-scrollbar-track {
+    scrollbar-shadow-color: rgb(238, 99, 82);
+    background: var(--scrollbarBG);
+  }
+
+  body::-webkit-scrollbar-thumb {
+    /* background-color: -webkit-linear-gradient(0deg, rgba(255,28,0,1) 0%, rgba(238,167,80,1) 100%); */
+    background: linear-gradient(top, rgb(238, 99, 82) 0%, rgb(240, 182, 127)100%);
+    background: -webkit-linear-gradient(top, rgb(238, 99, 82) 0%, rgb(240, 182, 127) 100%);
+    /* background:  -webkit-linear-gradient(top, rgba(255,28,0,1) 0%, rgba(238,167,80,1) 100%); */
+    border-radius: 15px;
+    /* background: rgb(238, 99, 82) url(assets/images/cactus.png) no-repeat center cover; */
+
+    border: 1px solid var(--scrollbarBG);
+  }
+
+.modal-open{
+    padding-right: 0!important;
+}
+
+*:focus,
+textarea:focus,
+input:focus{
+    outline: none;
 }
