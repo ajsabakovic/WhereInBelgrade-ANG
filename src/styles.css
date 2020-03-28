@@ -1,4 +1,5 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/font-awesome/css/font-awesome.min.css';
 @import '../node_modules/font-awesome/css/font-awesome.css';
 @import '../node_modules/alertifyjs/build/css/alertify.min.css';
 @import '../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
@@ -33,8 +34,8 @@ html {
 
   body::-webkit-scrollbar-thumb {
     /* background-color: -webkit-linear-gradient(0deg, rgba(255,28,0,1) 0%, rgba(238,167,80,1) 100%); */
-    background: linear-gradient(top, rgb(238, 99, 82) 0%, rgb(240, 182, 127)100%);
-    background: -webkit-linear-gradient(top, rgb(238, 99, 82) 0%, rgb(240, 182, 127) 100%);
+    background: linear-gradient(to top, rgb(238, 99, 82) 0%, rgb(240, 182, 127)100%);
+    background: -webkit-linear-gradient(to top, rgb(238, 99, 82) 0%, rgb(240, 182, 127) 100%);
     /* background:  -webkit-linear-gradient(top, rgba(255,28,0,1) 0%, rgba(238,167,80,1) 100%); */
     border-radius: 15px;
     /* background: rgb(238, 99, 82) url(assets/images/cactus.png) no-repeat center cover; */

@@ -1,21 +1,22 @@
 <div class="content">
     <div class="jumbo">
-        <img class="jumbo-img" src="../../../assets/images/template-img.jpg" alt="{{dogadjaj.naziv}} slika">
-        <h1>{{dogadjaj.naziv}}</h1>
-        <p>{{getOnlyDate(dogadjaj.datumPocetka)}}</p>
+        <img class="jumbo-img" src="../../../assets/images/template-img.jpg" alt="{{dogadjaj?.naziv}} slika">
+        <h1>{{dogadjaj?.naziv}}</h1>
+        <p>{{getOnlyDate(dogadjaj?.datumPocetka)}}</p>
     </div>
     <div class="other">
         <div class="description">
-            <a class="favourites">Add to Favourites <i class="fa fa-heart"></i></a>
-            <p class="opis">{{dogadjaj.opis}}</p>
+            <a *ngIf="!dogadjaj?.lajkovan" class="favourites notliked" (click)="likeEvent()"></a>
+            <a *ngIf="dogadjaj?.lajkovan" class="favourites liked" (click)="dislikeEvent()"></a>
+            <p class="opis">{{dogadjaj?.opis}}</p>
             <div class="categories">
-                <a class="category" *ngFor="let kat of dogadjaj.kategorije">{{kat.naziv}}</a>
+                <a class="category" *ngFor="let kat of dogadjaj?.kategorije">{{kat?.naziv}}</a>
             </div>
         </div>
         <div class="time-location">
             <div class="time">
-                <p class="time-item"><span>Vreme početka:</span> <br> {{getOnlyTime(dogadjaj.datumPocetka)}} h</p>
-                <p class="time-item"><span>Vreme završetka:</span> <br>{{getOnlyDate(dogadjaj.datumZavrsetka)}} u {{getOnlyTime(dogadjaj.datumZavrsetka)}} h</p>
+                <p class="time-item"><span>Vreme početka:</span> <br> {{getOnlyTime(dogadjaj?.datumPocetka)}} h</p>
+                <p class="time-item"><span>Vreme završetka:</span> <br>{{getOnlyDate(dogadjaj?.datumZavrsetka)}} u {{getOnlyTime(dogadjaj?.datumZavrsetka)}} h</p>
             </div>
             <div class="lokacija">
                 <h4>Lokacija: </h4> 
@@ -25,3 +26,4 @@
         </div>
     </div>
 </div>
+<app-register-modal></app-register-modal>

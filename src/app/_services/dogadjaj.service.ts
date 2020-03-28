@@ -23,4 +23,8 @@ getEventsById(id): Observable<Dogadjaj> {
   return this.http.get<Dogadjaj>(this.baseUrl + id);
 }
 
+getEventsByIdLogged(id, userId){
+  return this.http.get<Dogadjaj>(this.baseUrl + id + '/user/' + userId);
+}
+
 }

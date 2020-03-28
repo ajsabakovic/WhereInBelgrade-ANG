@@ -35,7 +35,7 @@ export class NavComponent implements OnInit {
     localStorage.removeItem('admin');
     this.authService.decodedToken = null;
     this.alertify.message('Logged out!');
-    this.router.navigate(['/home']);
+    // this.router.navigate(['/home']);
   }
 
   isAdmin() {

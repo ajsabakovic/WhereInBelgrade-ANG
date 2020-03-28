@@ -142,7 +142,7 @@
 } 
 
 .favourites{
-    background: rgb(238, 99, 82);
+    /* background: rgb(238, 99, 82);
     color: rgb(2, 47, 64);
     padding: 5px 20px;
     width: 90%;
@@ -151,15 +151,23 @@
     margin-left: auto;
     -webkit-box-shadow: -5px 0px 10px -5px rgba(0,0,0,0.5), 5px 0px 10px -5px rgba(0,0,0,0.5);
     -moz-box-shadow: -5px 0px 10px -5px rgba(0,0,0,0.5), 5px 0px 10px -5px rgba(0,0,0,0.5);
-    box-shadow: -5px 0px 10px -5px rgba(0,0,0,0.5), 5px 0px 10px -5px rgba(0,0,0,0.5);
+    box-shadow: -5px 0px 10px -5px rgba(0,0,0,0.5), 5px 0px 10px -5px rgba(0,0,0,0.5); */
+    height: 50px;
+    width: 90%;
+    margin-left: auto;
+    padding: 5px 20px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    box-shadow: none;
+    background-size: contain;
     cursor: pointer; 
     transition: all .2s ease-in-out;
 }
 
 .favourites:hover{
-    -webkit-box-shadow: -5px 0px 10px -3px rgba(0,0,0,0.5), 5px 0px 10px -3px rgba(0,0,0,0.5);
+    /* -webkit-box-shadow: -5px 0px 10px -3px rgba(0,0,0,0.5), 5px 0px 10px -3px rgba(0,0,0,0.5);
     -moz-box-shadow: -5px 0px 10px -3px rgba(0,0,0,0.5), 5px 0px 10px -3px rgba(0,0,0,0.5);
-    box-shadow: -5px 0px 10px -3px rgba(0,0,0,0.5), 5px 0px 10px -3px rgba(0,0,0,0.5);
+    box-shadow: -5px 0px 10px -3px rgba(0,0,0,0.5), 5px 0px 10px -3px rgba(0,0,0,0.5); */
 }
 
 @media(min-width:720px){
@@ -201,6 +209,25 @@
     }
 
     .favourites{
-        width: 30%;
+        width: 9%;
     }
+}
+
+
+.liked{
+    background-image: url(../../../assets/icons/heart-solid.svg);
+    transition: all .4s ease-in-out;
+}
+
+.liked:hover{
+    background-image: url(../../../assets/icons/heart-regular.svg);
+}
+
+.notliked{
+    background-image: url(../../../assets/icons/heart-regular.svg);
+    transition: all .4s ease-in-out;
+}
+
+.notliked:hover{
+    background-image: url(../../../assets/icons/heart-solid.svg);
 }

@@ -11,4 +11,5 @@ export interface Dogadjaj {
     lokacija?: Mesto;
     mainKategorija: Kategorija;
     kategorije?: Kategorija[];
+    lajkovan?: boolean;
 }
