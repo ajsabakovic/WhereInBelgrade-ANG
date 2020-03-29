@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 
 
 @Component({
@@ -7,14 +7,15 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./festival-kategorija.component.css']
 })
 export class FestivalKategorijaComponent implements OnInit {
-  @Output() kategorija = new EventEmitter();
+  @Input() kategorija: any;
+  naziv = 'festival';
 
   constructor() { }
 
   ngOnInit() {
+    if(this.kategorija === undefined || this.kategorija.length === 0 || this.kategorija !== this.naziv){
+      this.kategorija = this.naziv;
+    }
   }
 
-  metoda(kategorija: string) {
-    this.kategorija.emit(kategorija);
-  }
 }

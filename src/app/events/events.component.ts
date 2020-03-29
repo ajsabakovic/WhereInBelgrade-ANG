@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { EventsService } from '../_services/events.service';
 import { AlertifyService } from '../_services/alertify.service';
 import { Dogadjaj } from '../_model/dogadjaj';
@@ -9,16 +9,25 @@ import { Dogadjaj } from '../_model/dogadjaj';
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent implements OnInit {
-  kategorija: string;
+  @Input() kategorija: string;
+  dogadjaji: Dogadjaj[];
 
-  constructor() { }
+  constructor(private eventsService: EventsService, private alertify: AlertifyService) { }
 
   ngOnInit() {
+    this.loadEvents();
+  }
+  
+  hasEvents(){
+    return this.dogadjaji !== undefined && this.dogadjaji.length !== 0;
   }
 
-  getEvents(kategorija: string) {
-    console.log(kategorija);
-    this.kategorija = kategorija;
+  loadEvents(){
+    this.eventsService.getAll().subscribe((dogadjaji: Dogadjaj[]) => {
+      this.dogadjaji = dogadjaji;
+    }, error => {
+      this.alertify.error(error);
+    });
   }
 
 }

@@ -1,0 +1,14 @@
+<div class="jumbotron jumbotron-fluid "
+      [ngClass]="{festivali: kategorija === 'festivali',
+                  porodica: kategorija === 'porodica',
+                  kultura: kategorija === 'kultura',
+                  zabava: kategorija === 'zabava',
+                  sport: kategorija === 'sport'}">
+  <div class="container">
+    <div class="okvir">
+      <div class="sredina">
+        <h1 class="h1-first">{{kategorija}}</h1>
+      </div>
+    </div>
+  </div>
+</div>

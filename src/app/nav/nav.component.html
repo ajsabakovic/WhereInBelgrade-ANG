@@ -14,11 +14,11 @@
           <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" 
           aria-haspopup="true" aria-expanded="false" dropdownToggle [routerLink]="['/events']">Događaji</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01" *dropdownMenu>
-            <a class="dropdown-item" href="#">Zabava</a>
-            <a class="dropdown-item" href="#">Festivali</a>
-            <a class="dropdown-item" href="#">Kultura</a>
-            <a class="dropdown-item" href="#">Porodica</a>
-            <a class="dropdown-item" href="#">Sport</a>
+            <a class="dropdown-item"  [routerLink]="['/events/category/', 'zabava']">Zabava</a>
+            <a class="dropdown-item"  [routerLink]="['/events/category/', 'festivali']">Festivali</a>
+            <a class="dropdown-item"  [routerLink]="['/events/category/', 'kultura']">Kultura</a>
+            <a class="dropdown-item"  [routerLink]="['/events/category/', 'porodica']">Porodica</a>
+            <a class="dropdown-item"  [routerLink]="['/events/category/', 'sport']">Sport</a>
           </div>
         </li>
         <li class="nav-item" routerLinkActive="active" >

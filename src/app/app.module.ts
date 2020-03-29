@@ -46,6 +46,9 @@ import { DatePipe } from '@angular/common';
 import { DogadjajKategorijeComponent } from './dogadjaji/dogadjajKategorije/dogadjajKategorije.component';
 import { AlertifyService } from './_services/alertify.service';
 import { JwtModule } from '@auth0/angular-jwt';
+import { CategoryJumbotronComponent } from './jumbotrons/category-jumbotron/category-jumbotron.component';
+import { CategoryEventsComponent } from './dogadjaji/category-events/category-events.component';
+import { KategorijeObojenoComponent } from './dogadjaji/kategorije-obojeno/kategorije-obojeno.component';
 
 export function tokenGetter(){
    return localStorage.getItem('token');
@@ -87,7 +90,10 @@ export function tokenGetter(){
       ZabavaKategorijaComponent,
       EventsJumbotronComponent,
       WholeEventComponent,
-      DogadjajKategorijeComponent
+      DogadjajKategorijeComponent,
+      CategoryJumbotronComponent,
+      CategoryEventsComponent,
+      KategorijeObojenoComponent
    ],
    imports: [
       BrowserModule,
@@ -98,7 +104,7 @@ export function tokenGetter(){
       ModalModule.forRoot(),
       CollapseModule.forRoot(),
       BsDropdownModule.forRoot(),
-      RouterModule.forRoot(appRouter),
+      RouterModule.forRoot(appRouter, {onSameUrlNavigation: 'reload'}),
       BsDatepickerModule.forRoot(),
       JwtModule.forRoot({
          config:{

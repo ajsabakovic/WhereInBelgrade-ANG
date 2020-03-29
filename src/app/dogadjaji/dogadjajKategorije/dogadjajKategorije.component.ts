@@ -15,20 +15,12 @@ export class DogadjajKategorijeComponent implements OnInit {
   constructor(private eventsService: EventsService, private alertify: AlertifyService) { }
 
   ngOnInit() {
-      this.loadEvents();
+      this.selectedCategory();
   }
 
   ngOnChanges(changes: SimpleChanges) {
     console.log(this.kategorija);
     this.selectedCategory();
-  }
-
-  loadEvents(){
-    this.eventsService.getAll().subscribe((dogadjaji: Dogadjaj[]) => {
-      this.dogadjaji = dogadjaji;
-    }, error => {
-      this.alertify.error(error);
-    });
   }
 
   selectedCategory(){
@@ -43,4 +35,11 @@ export class DogadjajKategorijeComponent implements OnInit {
   hasEvents(){
     return this.dogadjaji !== undefined && this.dogadjaji.length !== 0;
   }
+  // loadEvents(){
+  //   this.eventsService.getAll().subscribe((dogadjaji: Dogadjaj[]) => {
+  //     this.dogadjaji = dogadjaji;
+  //   }, error => {
+  //     this.alertify.error(error);
+  //   });
+  // }
 }

@@ -1,4 +1,15 @@
 <app-events-jumbotron></app-events-jumbotron>
 <!-- <app-custom-date></app-custom-date> -->
-<app-dogadjajKategorije [kategorija]="kategorija"></app-dogadjajKategorije>
-<app-kategorije (kategorija) = "getEvents($event)"></app-kategorije>
+
+<div class="pozadina">
+  <h1 class="title">Predstojeći događaji</h1>
+  <div class="error" *ngIf="!hasEvents()">
+      <h2 class="nazalost" >Trenutno nema dogadjaja u ovoj kategoriji...</h2>
+      <img src="../../../assets/images/error.png" alt="error">
+  </div>
+  <div class="box" *ngIf="hasEvents()">
+    <app-whole-event *ngFor="let dogadjaj of dogadjaji" [dogadjaj]="dogadjaj"></app-whole-event>
+  </div>
+</div>
+
+<app-kategorije></app-kategorije>

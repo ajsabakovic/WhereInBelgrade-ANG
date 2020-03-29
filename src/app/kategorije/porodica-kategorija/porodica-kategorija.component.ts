@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-porodica-kategorija',
@@ -6,15 +6,14 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./porodica-kategorija.component.css']
 })
 export class PorodicaKategorijaComponent implements OnInit {
-  @Output() kategorija = new EventEmitter();
+  @Input() kategorija: any;
+  naziv = 'porodica';
 
   constructor() { }
 
   ngOnInit() {
-  }
-
-  metoda(kategorija: string) {
-    console.log(kategorija);
-    this.kategorija.emit(kategorija);
+    if(this.kategorija === undefined || this.kategorija.length === 0 || this.kategorija !== this.naziv){
+      this.kategorija = this.naziv;
+    }
   }
 }
