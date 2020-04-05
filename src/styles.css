@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css?family=Parisienne|Raleway&display=swap');
 
 html,body{
-    min-height: 100vh;
+    min-height: 60vh;
     overflow-x: hidden;
 }
 

@@ -1,8 +1,6 @@
 .surround{
     background: rgb(240,182,127);
     text-align: center;
-    /* display: flex;
-    flex-direction: column; */
     min-height: 90vh;
 }
 .posts{
@@ -14,8 +12,8 @@
     padding-bottom: 20px;
 }
 .naslov{
-    padding-top: 40px;
-    padding-bottom: 20px;
+    padding-top: 60px;
+    padding-bottom: 50px;
     font-family: 'Raleway', sans-serif;
     color:rgb(3,48,65);
     font-weight: 900;
@@ -33,7 +31,7 @@
     margin: 10px auto 0;
     display: flex;
     width: 80%;
-
+    height: 70vh;
 }
 
 .error img{

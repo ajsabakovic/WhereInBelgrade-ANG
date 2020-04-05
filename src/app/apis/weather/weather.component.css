@@ -1,0 +1,61 @@
+.weatherMain{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 220px;
+    background: rgb(240, 97, 89);
+    color: white;
+    font-family: 'Raleway', 'sans-serif';
+    padding: 0 20px;
+    transition: 0.5s;
+}
+.weatherMain:hover{
+    background: rgb(240,182,127);
+}
+
+.left{
+    display: flex;
+    font-size: 32px;
+    justify-content: center;
+    width: 50%;
+    min-height: 31vh;
+    padding: 10px 0;
+}
+
+.leftDay{    
+    background: url("../../../assets/images/day.png") no-repeat center 33%/cover;
+}
+
+.leftNight{
+    background: url("../../../assets/images/noc.png") no-repeat center 33%/cover;
+}
+
+.right{    
+    display: flex;
+    flex-direction: column;
+    font-size: 22px;
+    width: 50%;    
+    min-height: 31vh;
+    justify-content: center;
+    text-align: center;
+}
+
+@media(max-width: 1240px){
+    .weatherMain{
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .left{
+        margin: 20px;
+        width: 90%;
+    }
+
+    .right{
+        font-size: 20px;
+        width: 90%;  
+        margin-top: 0;  
+    }
+}

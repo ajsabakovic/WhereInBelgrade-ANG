@@ -16,8 +16,7 @@ export class NavComponent implements OnInit {
   // register: RegisterModalComponent;
   isCollapsed = true;
   @ViewChild(RegisterModalComponent) register;
-  constructor(public authService: AuthService, private alertify: AlertifyService,
-    private router: Router) { }
+  constructor(public authService: AuthService, private alertify: AlertifyService, private router: Router) { }
   ngOnInit() {
   }
 

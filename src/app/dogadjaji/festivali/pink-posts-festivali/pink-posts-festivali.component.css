@@ -1,8 +1,6 @@
 .surround{
     background: rgb(240, 97, 89);
     text-align: center;
-    /* display: flex;
-    flex-direction: column; */
     min-height: 90vh;
 }
 .posts{
@@ -33,7 +31,7 @@
     margin: 10px auto 0;
     display: flex;
     width: 80%;
-
+    height: 70vh;
 }
 
 .error img{

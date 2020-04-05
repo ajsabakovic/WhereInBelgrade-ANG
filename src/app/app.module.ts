@@ -49,6 +49,10 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { CategoryJumbotronComponent } from './jumbotrons/category-jumbotron/category-jumbotron.component';
 import { CategoryEventsComponent } from './dogadjaji/category-events/category-events.component';
 import { KategorijeObojenoComponent } from './dogadjaji/kategorije-obojeno/kategorije-obojeno.component';
+import { LikedEventsComponent } from './dogadjaji/liked-events/liked-events.component';
+import { FavouritesJumbotronComponent } from './jumbotrons/favourites-jumbotron/favourites-jumbotron.component';
+import { FavEventComponent } from './dogadjaji/fav-event/fav-event.component';
+import { WeatherComponent } from './apis/weather/weather.component';
 
 export function tokenGetter(){
    return localStorage.getItem('token');
@@ -93,7 +97,11 @@ export function tokenGetter(){
       DogadjajKategorijeComponent,
       CategoryJumbotronComponent,
       CategoryEventsComponent,
-      KategorijeObojenoComponent
+      KategorijeObojenoComponent,
+      LikedEventsComponent,
+      FavouritesJumbotronComponent,
+      FavEventComponent,
+      WeatherComponent
    ],
    imports: [
       BrowserModule,

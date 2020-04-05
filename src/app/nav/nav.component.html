@@ -38,7 +38,7 @@
           Welcome, {{authService.decodedToken?.unique_name}}
         </a>
         <div class="dropdown-menu" *dropdownMenu>
-          <a class="dropdown-item" *ngIf="!isAdmin()"><i class="fa fa-heart mr-2"></i>Favourites</a>
+          <a class="dropdown-item" *ngIf="!isAdmin()" [routerLink]="['/events/favourites']"><i class="fa fa-heart mr-2"></i>Favourites</a>
           <a class="dropdown-item" *ngIf="isAdmin()"><i class="fa fa-calendar mr-2"></i>Add Event</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" (click)="logOut()"><i class="fa fa-sign-out mr-2"></i>Logout</a>

@@ -1,0 +1,87 @@
+.card{
+    display: flex;
+    flex-direction: row;
+    margin: 30px auto;
+    min-width: 540px;
+    height: 40vh;
+    -webkit-box-shadow: 0px 0px 13px 3px rgba(3,48,65,0.75);
+    -moz-box-shadow: 0px 0px 13px 3px rgba(3,48,65,0.75);
+    box-shadow: 0px 0px 13px 3px rgba(3,48,65,0.75);
+    background: rgb(3,48,65);
+    color: #fff;
+    border-radius: 25px 25px 25px 25px;
+    -moz-border-radius: 25px 25px 25px 25px;
+    -webkit-border-radius: 25px 25px 25px 25px;
+}
+.detalji{
+   display: flex;
+   flex-direction: column;
+   width: 50%;
+   align-items: center; 
+}
+
+.up{
+   display: flex;
+   flex-direction: column;
+   background-color:rgb(240, 97, 89);
+   width: 100%;
+   height: 25vh;
+   justify-content: center;
+   border-radius: 0px 25px 0px 0px;
+}
+
+.naslov{
+   color:#fff;
+   text-shadow: 0 1px 3px rgb(240,182,127);
+   padding: 0 10px;
+   font-size: 1.8em;
+}
+.slika{
+    width: 50%;
+    background: url("../../../assets/images/beograd.jpg") no-repeat center 50%/cover;
+    border-radius: 25px 0px 0px 25px;
+   -moz-border-radius: 25px 0px 0px 25px;
+   -webkit-border-radius: 25px 0px 0px 25px;
+   border: 0px solid rgb(240,182,127);
+}
+
+button{
+    background-color: rgb(3,48,65);
+    color:#fff;
+    transition: all .2s ease-in-out;
+    width: 100%;
+    font-size: 1.5em;
+    height: 50%;
+    border-radius:  0px 0px 25px 0px;
+}
+button:hover{
+   background-color: rgb(240,182,127);
+   color:#fff;
+}
+
+@media(max-width:720px){
+   .card{
+       flex-direction: column;
+       height: 50vh;
+       min-width: 400px;
+   }
+   .slika{
+       width: 100%;
+       height: 30vh;
+       border-radius: 25px 25px 0px 0px;
+   }
+   .detalji{
+        width: 100%;
+        margin: 0;
+   }
+   .up{
+       border-radius: 0px;
+       font-size: 1em;
+       height: 12vh;
+   }
+   button{
+       border-radius:  0px 0px 25px 25px;
+       margin: 0!important;
+       height: 8vh;
+   }
+}

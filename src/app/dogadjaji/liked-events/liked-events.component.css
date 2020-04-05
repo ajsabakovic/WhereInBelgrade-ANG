@@ -1,0 +1,29 @@
+.pozadina{
+    text-align: center;
+    background: rgb(240,182,127);
+}
+
+.box{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background: rgb(240,182,127);
+    padding: 40px;
+}
+
+.error{
+    margin: 0 auto;
+    display: flex;
+    width: 80%;
+    max-height: 80vh;
+}
+
+.error img{
+    width: 50%;
+}
+
+.nazalost{
+    margin-top: 5vh;
+}
