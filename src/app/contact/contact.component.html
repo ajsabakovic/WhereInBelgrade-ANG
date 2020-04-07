@@ -1,23 +1,23 @@
 <app-contact-jumbotron></app-contact-jumbotron>
 <div class="surround">
-    <form>
-      <div class="form-group first">
-        <h1>Popunite formu</h1>
-        <div class="upit">
-          <input type="text" placeholder="Vaše ime" required>
-        </div>
-        <div class="upit">
-          <input type="text" placeholder="Vaše prezime" required>
-        </div>
-        <div class="upit">
-          <input type="text" placeholder="primer@gmail.com" required>
-        </div>
+  <form  #contactForm="ngForm" (ngSubmit)="sendEmail()">
+    <div class="form-group first">
+      <h1>Popunite formu</h1>
+      <div class="upit">
+        <input type="text" placeholder="Vaše ime" [(ngModel)]="email.name"  name="name" >
       </div>
-      <div class="form-group textarea">
-        <div class="upit">
-          <textarea placeholder="Vaše pitanje"></textarea>
-        </div>
+      <div class="upit">
+        <input type="text" placeholder="Vaše prezime" [(ngModel)]="email.surname"  name="surname" required>
       </div>
-        <button class="btn btn-primary" type="submit">POŠALJI</button>
-    </form>
+      <div class="upit">
+        <input type="email" placeholder="primer@gmail.com" [(ngModel)]="email.email"  name="email" required>
+      </div>
+    </div>
+    <div class="form-group textarea">
+      <div class="upit">
+        <textarea placeholder="Vaše pitanje" [(ngModel)]="email.body"  name="body"></textarea>
+      </div>
+    </div>
+      <button class="btn btn-primary" type="submit">POŠALJI</button>
+  </form>
 </div>
