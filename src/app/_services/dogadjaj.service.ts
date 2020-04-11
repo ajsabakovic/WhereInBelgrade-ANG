@@ -8,23 +8,27 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DogadjajService {
-baseUrl = environment.apiUrl + '/dogadjaj/';
-constructor(private http: HttpClient) { }
+  baseUrl = environment.apiUrl + '/dogadjaj/';
+  constructor(private http: HttpClient) { }
 
-getAllEvents(): Observable<Dogadjaj[]> {
-  return this.http.get<Dogadjaj[]>(this.baseUrl);
-}
+  getAllEvents(): Observable<Dogadjaj[]> {
+    return this.http.get<Dogadjaj[]>(this.baseUrl);
+  }
 
-getEventsByCategory(kategorija): Observable<Dogadjaj[]>{
-  return this.http.get<Dogadjaj[]>(this.baseUrl + 'kategorija/' + kategorija);
-}
+  getEventsByCategory(kategorija): Observable<Dogadjaj[]>{
+    return this.http.get<Dogadjaj[]>(this.baseUrl + 'kategorija/' + kategorija);
+  }
 
-getEventsById(id): Observable<Dogadjaj> {
-  return this.http.get<Dogadjaj>(this.baseUrl + id);
-}
+  getEventsById(id): Observable<Dogadjaj> {
+    return this.http.get<Dogadjaj>(this.baseUrl + id);
+  }
 
-getEventsByIdLogged(id, userId){
-  return this.http.get<Dogadjaj>(this.baseUrl + id + '/user/' + userId);
-}
+  getEventsByIdLogged(id, userId){
+    return this.http.get<Dogadjaj>(this.baseUrl + id + '/user/' + userId);
+  }
 
+  deleteEvent(id: any): Observable<Dogadjaj[]> {
+    console.log(this.baseUrl + id);
+    return this.http.delete<Dogadjaj[]>(this.baseUrl + id);
+  }
 }

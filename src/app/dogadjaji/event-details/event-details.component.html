@@ -5,9 +5,9 @@
         <p>{{getOnlyDate(dogadjaj?.datumPocetka)}}</p>
     </div>
     <div class="other">
-        <div class="description">
-            <a *ngIf="!dogadjaj?.lajkovan" class="favourites notliked" (click)="likeEvent()"></a>
-            <a *ngIf="dogadjaj?.lajkovan" class="favourites liked" (click)="dislikeEvent()"></a>
+        <div class="description" >
+            <a *ngIf="!dogadjaj?.lajkovan && !admin" class="favourites notliked" (click)="likeEvent()"></a>
+            <a *ngIf="dogadjaj?.lajkovan && !admin" class="favourites liked" (click)="dislikeEvent()"></a>
             <p class="opis">{{dogadjaj?.opis}}</p>
             <div class="categories">
                 <a class="category" *ngFor="let kat of dogadjaj?.kategorije">{{kat?.naziv}}</a>

@@ -1,0 +1,94 @@
+.data-table {
+  width: 60%;
+  margin: 0 auto;
+  font-family: 'Raleway', sans-serif;
+  background: rgb(3,48,65);
+  color: rgb(212, 211, 209);
+  font-size: 1.3em;
+  -webkit-box-shadow: 0px 0px 15px 2px rgba(3,48,65,0.77);
+  -moz-box-shadow: 0px 0px 15px 2px rgba(3,48,65,0.77);
+  box-shadow: 0px 0px 15px 2px rgba(3,48,65,0.77);
+}
+
+.mat-cell{
+  width: 80%;
+  text-align: left;
+  min-height: 9vh;
+}
+
+.mat-column-obrisi{
+  width: 10%;
+  /* text-align: left; */
+}
+
+.mat-column-izmeni{
+  text-align: center;
+}
+
+i:hover{
+  color: #fff;
+}
+
+th{
+  font-size: 1.4em;
+  background: rgb(240, 97, 89);
+  color: rgb(3,48,65); 
+  font-weight: bolder;
+}
+
+.mat-button-base{
+  background-color: white;
+}
+
+mat-paginator{
+  background: rgb(240, 97, 89);
+  font-weight: bold;
+  color: rgb(3,48,65);
+  padding-right: 20px;
+}
+ 
+.mat-select-panel-wrap{
+  width: 50%!important;
+  margin: 0 auto!important;
+  background: rgb(240, 97, 89);
+}
+
+@media(max-width: 900px){
+  .data-table {
+    width: 90%;
+  }
+}
+
+@media(max-width: 600px){
+  th{
+    font-size: 1.1em;
+  }
+  mat-paginator{
+    padding-right: 0;
+  }
+  /* pokusaj za paginator */
+  .mat-paginator-outer-container{
+    font-size: 0.8em!important;
+  }
+}
+
+/* pokusaj za strelice */
+.mat-focus-indicator {
+  background: white!important;
+}
+
+.mat-paginator-navigation-previous {
+  background: white!important;
+}
+
+.mat-icon-button {
+  background: white!important;
+}
+
+.mat-button-base{
+  background: white!important;
+}
+
+button{
+  background: white!important;
+}

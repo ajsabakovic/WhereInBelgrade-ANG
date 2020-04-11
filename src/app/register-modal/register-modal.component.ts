@@ -13,7 +13,7 @@ export class RegisterModalComponent implements OnInit {
   provera: boolean;
 
   constructor(private modalService: BsModalService, private authService: AuthService,
-    private alertify: AlertifyService) {}
+              private alertify: AlertifyService) {}
 
   @ViewChild('template') elementView: TemplateRef<any>;
   user: any = {};
@@ -25,7 +25,7 @@ export class RegisterModalComponent implements OnInit {
     this.modalRef = this.modalService.show(this.elementView);
   }
 
-  register(){
+  register() {
     this.authService.register(this.user).subscribe(() => {
       this.alertify.success('Registration successfull');
       this.modalRef.hide();
@@ -34,7 +34,7 @@ export class RegisterModalComponent implements OnInit {
     });
   }
 
-  login(){
+  login() {
     this.authService.login(this.user).subscribe(next => {
       this.alertify.success('Logged in successfully');
       this.modalRef.hide();
@@ -45,21 +45,21 @@ export class RegisterModalComponent implements OnInit {
     });
   }
 
-  loggedIn(){
+  loggedIn() {
     return this.authService.loggedIn();
   }
 
-  logout(){
+  logout() {
     localStorage.removeItem('token');
     this.alertify.message("Logged out!");
     // this.router.navigate(['/home']);
   }
 
-  registration(){
+  registration() {
     return this.provera;
   }
 
-  registrationToggle(){
+  registrationToggle() {
     this.provera = !this.provera;
   }
 }

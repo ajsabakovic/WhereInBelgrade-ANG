@@ -53,6 +53,11 @@ import { LikedEventsComponent } from './dogadjaji/liked-events/liked-events.comp
 import { FavouritesJumbotronComponent } from './jumbotrons/favourites-jumbotron/favourites-jumbotron.component';
 import { FavEventComponent } from './dogadjaji/fav-event/fav-event.component';
 import { WeatherComponent } from './apis/weather/weather.component';
+import { DataTableComponent } from './data-table/data-table.component';
+import { MatTableModule, MatTable } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { AdminEventsComponent } from './adminEvents/adminEvents.component';
 
 export function tokenGetter(){
    return localStorage.getItem('token');
@@ -101,7 +106,9 @@ export function tokenGetter(){
       LikedEventsComponent,
       FavouritesJumbotronComponent,
       FavEventComponent,
-      WeatherComponent
+      WeatherComponent,
+      DataTableComponent,
+      AdminEventsComponent
    ],
    imports: [
       BrowserModule,
@@ -120,7 +127,10 @@ export function tokenGetter(){
             whitelistedDomains: ['localhost:5000'],
             blacklistedRoutes:['localhost:5000/api/auth']
          }
-      })
+      }),
+      MatSortModule,
+      MatPaginatorModule,
+      MatTableModule
    ],
    providers: [
       ErrorInteceptorProvider,

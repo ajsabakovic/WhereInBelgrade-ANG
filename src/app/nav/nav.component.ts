@@ -25,11 +25,11 @@ export class NavComponent implements OnInit {
     this.register.ShowComponent();
   }
 
-  loggedIn(){
+  loggedIn() {
     return this.authService.loggedIn();
   }
 
-  logOut(){
+  logOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('admin');
     this.authService.decodedToken = null;
@@ -39,7 +39,7 @@ export class NavComponent implements OnInit {
 
   isAdmin() {
     const admin = this.authService.isAdmin();
-    if(admin){
+    if (admin) {
       return true;
     }
     return false;

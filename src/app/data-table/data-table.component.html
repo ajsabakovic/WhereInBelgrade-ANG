@@ -1,0 +1,33 @@
+<div class="mat-elevation-z8 data-table">
+  <table mat-table class="full-width-table" matSort aria-label="Elements" [dataSource]="dataSource.data">
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="naziv">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="naslov">Pregled događaja</th>
+      <td mat-cell *matCellDef="let event">{{event.naziv}}</td>
+    </ng-container>
+
+    <!-- Izmeni Column -->
+    <ng-container matColumnDef="izmeni">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+      <td mat-cell  *matCellDef="let event"><i class="fa fa-edit"></i></td>
+    </ng-container>
+
+    <!-- Obrisi Column -->
+    <ng-container matColumnDef="obrisi">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+      <td mat-cell  *matCellDef="let event" (click)="deleteEvent(event.dogadjajID, paginator)"><i class="fa fa-trash"></i></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let event; columns: displayedColumns;"></tr>
+  </table>
+  
+
+  <mat-paginator #paginator
+      [length]="dataSource.data.length"
+      [pageIndex]="0"
+      [pageSize]="10"
+      [pageSizeOptions]="[1,5,10]">
+  </mat-paginator>
+</div>

@@ -17,12 +17,12 @@ export class EventsComponent implements OnInit {
   ngOnInit() {
     this.loadEvents();
   }
-  
-  hasEvents(){
+
+  hasEvents() {
     return this.dogadjaji !== undefined && this.dogadjaji.length !== 0;
   }
 
-  loadEvents(){
+  loadEvents() {
     this.eventsService.getAll().subscribe((dogadjaji: Dogadjaj[]) => {
       this.dogadjaji = dogadjaji;
     }, error => {

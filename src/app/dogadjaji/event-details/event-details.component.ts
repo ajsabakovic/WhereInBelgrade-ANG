@@ -17,17 +17,19 @@ export class EventDetailsComponent implements OnInit {
 
   @ViewChild(RegisterModalComponent) register;
   dogadjaj: Dogadjaj;
+  admin: boolean;
+  // isAdmin = false;
 
   constructor(private dogadjajService: DogadjajService, private alertify: AlertifyService, 
-    private route: ActivatedRoute, private datePipe: DatePipe, private authService: AuthService,
-    private likeService: LikeEventService) { }
+              private route: ActivatedRoute, private datePipe: DatePipe, private authService: AuthService,
+              private likeService: LikeEventService) { }
 
   ngOnInit() {
     this.loadUser();
   }
 
   loadUser(){
-    if(!this.authService.loggedIn()){
+    if (!this.authService.loggedIn()){
       this.dogadjajService.getEventsById(+this.route.snapshot.params['id']).subscribe((dogadjaj: Dogadjaj) =>{
         this.dogadjaj = dogadjaj;
         console.log(this.dogadjaj.naziv);
@@ -36,8 +38,14 @@ export class EventDetailsComponent implements OnInit {
       });
     } else {
       this.dogadjajService.getEventsByIdLogged(+this.route.snapshot.params['id'], this.authService.decodedToken.nameid)
-      .subscribe((dogadjaj: Dogadjaj) =>{
+      .subscribe((dogadjaj: Dogadjaj) => {
         this.dogadjaj = dogadjaj;
+        if(this.authService.isAdmin()){
+          this.admin = true;
+        }
+        else{
+          this.admin = false;
+        }
         console.log(this.dogadjaj.naziv);
       }, error => {
         this.alertify.error(error);
@@ -49,16 +57,16 @@ export class EventDetailsComponent implements OnInit {
     return this.datePipe.transform(date, 'dd/MM/yyyy');
   }
 
-  getOnlyTime(date:Date){
+  getOnlyTime(date: Date){
     return this.datePipe.transform(date, 'HH:mm');
   }
 
-  likeEvent(){
-    if(this.authService.loggedIn()){
+  likeEvent() {
+    if (this.authService.loggedIn()) {
       this.likeService.likeEvent(this.authService.decodedToken.nameid, this.dogadjaj.dogadjajID)
       .subscribe(() => {
         this.dogadjaj.lajkovan = true;
-        this.alertify.success("Dodali ste dogadjaj u omiljene");
+        this.alertify.success('Dodali ste dogadjaj u omiljene');
       }, error => {
         this.alertify.error(error);
       });
@@ -71,7 +79,7 @@ export class EventDetailsComponent implements OnInit {
     this.likeService.dislikeEvent(this.authService.decodedToken.nameid, this.dogadjaj.dogadjajID)
     .subscribe(() => {
       this.dogadjaj.lajkovan = false;
-      this.alertify.message("Izbacili ste dogadjaj iz omiljenih");
+      this.alertify.message('Izbacili ste dogadjaj iz omiljenih');
     }, error => {
       this.alertify.error(error);
     })
