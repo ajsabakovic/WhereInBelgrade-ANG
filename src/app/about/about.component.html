@@ -1,18 +1,38 @@
-<app-about-jumbotron></app-about-jumbotron>
-<div class = "surround">
-    <div class="leftBox">
-        <div class="content">
-            <h1> Where in Belgrade</h1>
-            <p>
-                Apparently we had reached a great height in the atmosphere, for the sky was a dead black, 
-                and the stars had ceased to twinkle. By the same illusion which lifts the horizon of the sea 
-                to the level of the spectator on a hillside, the sable cloud beneath was dished out, and the 
-                car seemed to float in the middle of an immense dark sphere, whose upper half was strewn with silver.
-                Looking down into the dark gulf below, I could see a ruddy light streaming through a rift in the clouds. 
-            </p>
+ <app-about-jumbotron></app-about-jumbotron>
+<div class="all">
+    <div class = "surround">
+        <div class="leftBox">
+            <div class="content">
+                <h1> Where in Belgrade</h1>
+                <p>
+                    Apparently we had reached a great height in the atmosphere, for the sky was a dead black, 
+                    and the stars had ceased to twinkle. By the same illusion which lifts the horizon of the sea 
+                    to the level of the spectator on a hillside, the sable cloud beneath was dished out, and the 
+                    car seemed to float in the middle of an immense dark sphere, whose upper half was strewn with silver.
+                    Looking down into the dark gulf below, I could see a ruddy light streaming through a rift in the clouds. 
+                </p>
+            </div>
         </div>
-    </div>
-    <div class="rightBox">
-      <app-weather></app-weather>
-    </div>
-  </div> 
+        <div class="rightBox">
+          <app-weather></app-weather>
+        </div>
+      </div>
+      <div class="virus">
+        <h1 class="covidApi">COVID19 LATEST</h1>
+        <div class="covid">
+            <div class="box">
+                <h2 class="naslov">Ukupno obolelih</h2>
+                <p class="broj">{{covidData?.UkupnoObolelih}}</p>
+            </div>
+            <div class="box">
+                <h2 class="naslov">Ukupno preminulih</h2>
+                <p class="broj">{{covidData?.UkupnoMrtvih}}</p>
+            </div>
+            <div class="box">
+                <h2 class="naslov">Ukupno oporavljenih</h2>
+                <p class="broj">{{covidData?.UkupnoOporavljenih}}</p>
+            </div>
+        </div>
+      </div>
+      
+</div>

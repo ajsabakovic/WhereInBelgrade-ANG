@@ -1,3 +1,6 @@
+.all{
+     
+}
 .surround{
     font-family: 'Raleway', sans-serif;
     display: flex;
@@ -9,14 +12,15 @@
 
 .rightBox{
     width: 50%;
-    padding: 50px;
-    background:rgb(3, 48, 65);
+    padding: 0px 50px;
+    /* background:rgb(3, 48, 65); */
+    min-height: 42vh;
 }
 
 .leftBox{
     width: 50%;
     padding: 50px;
-    background:rgb(240,182,127);
+    background:rgb(240, 97, 89);
 }
 .content{
     color:#fff;
@@ -26,7 +30,7 @@
     text-align: justify;
 }
 .content:hover{
-    background: rgb(240, 97, 89);
+    /* background: rgb(240,182,127); */
 }
 .content h1{
     margin: 0;
@@ -35,12 +39,62 @@
     text-transform: uppercase;
 }
 
+.virus{
+    background:  radial-gradient(transparent, rgba(133, 98, 98, 0.2)),
+    #fff url("../../assets/images/patern.png") no-repeat center 35%/cover;
+}
+
 .content p{
     margin: 10px 0 0;
     padding: 0;
 }
 
+.covidApi{
+    /* background: rgb(240,182,127); */
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: 900;
+    margin: 0;
+    padding: 40px 0;
+}
 
+.covid{
+    font-family: 'Raleway', sans-serif;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* background-color:rgb(240,182,127); */
+    padding-bottom: 40px; 
+}
+
+.naslov{
+    font-size: 1.5em;
+}
+
+.box{
+    background: rgba(3, 48, 65,.9);
+    min-height: 15vh;
+    color: white;
+    padding: 20px;
+    width: 20%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    -webkit-box-shadow: 0px 0px 15px 2px rgba(3,48,65,0.77);
+    -moz-box-shadow: 0px 0px 15px 2px rgba(3,48,65,0.77);
+    box-shadow: 0px 0px 15px 2px rgba(3,48,65,0.77);
+    margin: 10px;
+}
+
+.broj{
+    font-size: 1.7em;
+    font-weight: bold;
+    margin: 0;
+}
 
 @media(max-width: 900px){
     .surround{
@@ -54,6 +108,7 @@
     .leftBox{
         padding: 30px 0;
         width: 80%;
+        background:rgb(240,182,127);
     }
     .rightBox{
         padding: 0;
@@ -65,5 +120,11 @@
         margin: 0;
         padding: 30px;
         width: 100%;
+    }
+    .covid{
+        flex-direction: column;
+    }
+    .box{
+        width: 80%;
     }
 }
