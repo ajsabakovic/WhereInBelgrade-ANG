@@ -11,6 +11,11 @@ import { DatePipe } from '@angular/common';
 })
 export class WholeEventComponent implements OnInit {
   @Input()dogadjaj: Dogadjaj;
+  imageUrl = '../../../assets/images/default.jpg';
+
+  proveraSlike(){
+    return this.dogadjaj?.url !== null;
+  }
 
   constructor(private datePipe: DatePipe) { }
 

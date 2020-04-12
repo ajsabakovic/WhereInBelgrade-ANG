@@ -3,6 +3,11 @@
     text-align: center;
     min-height: 90vh;
 }
+
+.post{
+    width: 30%;
+}
+
 .posts{
     margin: 0 auto;
     display: flex;
@@ -43,4 +48,6 @@
         flex-direction: column;
         width: 70%;
     }
+
+    
 }

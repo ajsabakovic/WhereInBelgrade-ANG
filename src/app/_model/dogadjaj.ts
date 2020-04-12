@@ -4,6 +4,7 @@ import { Kategorija } from './kategorija';
 export interface Dogadjaj {
     dogadjajID: number;
     naziv: string;
+    url?: string;
     opis?: string;
     zaKolikoDana?: number;
     datumPocetka?: Date;

@@ -4,6 +4,7 @@
 @import '../node_modules/alertifyjs/build/css/alertify.min.css';
 @import '../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
 @import url('https://fonts.googleapis.com/css?family=Parisienne|Raleway&display=swap');
+@import '../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css';
 
 html,body{
     min-height: 60vh;
@@ -49,6 +50,20 @@ html {
 
 *:focus,
 textarea:focus,
-input:focus{
+input:focus,
+.btn-kat:focus{
     outline: none;
+}
+
+
+#vremePocetka[_ngcontent-lyb-c142] table, 
+.vreme-label[_ngcontent-lyb-c142] table,
+#vremePocetka table,
+#vremeZavrsetka table{
+  margin: 0 auto!important;
+}
+
+.bs-timepicker-field{
+  background-color: rgb(246, 216, 174)!important;
+  border-color: rgb(240, 182, 127)!important;
 }

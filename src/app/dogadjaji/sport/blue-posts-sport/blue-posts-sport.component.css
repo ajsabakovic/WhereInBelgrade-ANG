@@ -11,6 +11,11 @@
     width: 95%;
     padding-bottom: 20px;
 }
+
+.post{
+    width: 30%;
+}
+
 .naslov{
     padding-top: 60px;
     padding-bottom: 50px;

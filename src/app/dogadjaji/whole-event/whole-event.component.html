@@ -16,7 +16,8 @@
 </div> -->
 
 <div class="card">
-  <div class="slika">
+  <div class="slika"
+       [ngStyle] = "proveraSlike() ? {'background': '#fff url(' + dogadjaj?.url + ') no-repeat center 50%/cover'} : {'background': 'url(' + imageUrl +') no-repeat center 50%/cover'}">
   </div>
   <div class="detalji">
     <div class="up">

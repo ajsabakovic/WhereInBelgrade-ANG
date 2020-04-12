@@ -15,6 +15,10 @@ getAllEvents(): Observable<Dogadjaj[]> {
   return this.http.get<Dogadjaj[]>(this.baseUrl);
 }
 
+getEventsByCategoryMainPage(kategorija: string): Observable<Dogadjaj[]>{
+  return this.http.get<Dogadjaj[]>(this.baseUrl + 'pocetna/' + kategorija);
+}
+
 getEventsByCategory(kategorija): Observable<Dogadjaj[]>{
   return this.http.get<Dogadjaj[]>(this.baseUrl + 'kategorija/' + kategorija);
 }
@@ -25,6 +29,10 @@ getEventsById(id): Observable<Dogadjaj> {
 
 getEventsByIdLogged(id, userId){
   return this.http.get<Dogadjaj>(this.baseUrl + id + '/user/' + userId);
+}
+
+insertEvent(userId: number, data: FormData){
+  return this.http.post(this.baseUrl + 'user/' + userId, data);
 }
 
 }

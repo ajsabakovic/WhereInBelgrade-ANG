@@ -1,6 +1,6 @@
 <div class="content">
     <div class="jumbo">
-        <img class="jumbo-img" src="../../../assets/images/template-img.jpg" alt="{{dogadjaj?.naziv}} slika">
+        <img class="jumbo-img" src="{{dogadjaj?.url || '../../../../../assets/images/default.jpg'}}" alt="{{dogadjaj?.naziv}} slika">
         <h1>{{dogadjaj?.naziv}}</h1>
         <p>{{getOnlyDate(dogadjaj?.datumPocetka)}}</p>
     </div>

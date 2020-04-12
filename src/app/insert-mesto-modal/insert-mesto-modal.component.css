@@ -1,0 +1,58 @@
+.modal-content{
+    background-color: transparent;
+    border-radius: 10px;
+}
+
+.modal-header{
+    background-color: rgb(238, 99, 82);
+    border-bottom: unset;
+}
+
+.modal-body{
+    background-color: rgb(240, 182, 127);
+}
+
+.modal-body input{
+    background-color: rgb(246, 216, 174);
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.btn-element:first-child{
+    margin-right: 10px;
+}
+
+.btn-element{
+    border: 1px solid black;
+    background-color: rgb(246, 216, 174);
+}
+
+.btn-dodaj,
+.btn-element{
+    transition: ease-in-out all .4s;
+}
+
+.btn-element:hover{
+    background-color: rgb(238, 99, 82);
+}
+
+.btn-dodaj{
+    border: 1px solid black;
+    background-color: rgb(238, 99, 82);
+}
+
+.btn-dodaj:active,
+.btn-dodaj:hover{
+    background-color: rgb(246, 216, 174);
+}
+
+.btn-dodaj:disabled{
+    border: 1px solid black!important;
+    background-color: rgb(238, 99, 82)!important;
+}
+
+
