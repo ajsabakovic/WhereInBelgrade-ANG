@@ -11,15 +11,14 @@ import { AlertifyService } from '../_services/alertify.service';
 export class RegisterModalComponent implements OnInit {
   modalRef: BsModalRef;
   provera: boolean;
+  returnUrl: string;
 
-  constructor(private modalService: BsModalService, private authService: AuthService,
-              private alertify: AlertifyService) {}
+  constructor(private modalService: BsModalService, private authService: AuthService, private alertify: AlertifyService) {}
 
   @ViewChild('template') elementView: TemplateRef<any>;
   user: any = {};
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   ShowComponent() {
     this.modalRef = this.modalService.show(this.elementView);

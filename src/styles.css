@@ -67,3 +67,63 @@ input:focus,
   background-color: rgb(246, 216, 174)!important;
   border-color: rgb(240, 182, 127)!important;
 }
+
+/* Data table */
+.mat-focus-indicator{
+  background: rgb(3, 48, 65);
+}
+
+.mat-focus-indicator:hover{
+  background: rgb(212, 211, 209);
+} 
+
+path{
+  color: rgb(240, 97, 89);
+}
+.mat-paginator-outer-container{
+  font-size: 0.8em!important;
+}
+
+.mat-select-value{
+  text-align: center;
+}
+
+.mat-sort-header-button:hover{
+  background: rgb(240, 97, 89)!important;
+}
+
+mat-option{
+  margin: 0 auto;
+  width: 5%;
+  text-align: center!important;
+  background: rgb(240, 97, 89);
+  color: #fff;
+  height: 3vh!important;
+}
+
+mat-option:hover{
+  color: rgb(3, 48, 65);
+}
+
+.mat-paginator-navigation-next{
+  margin-left: 5px!important;
+}
+
+.mat-focus-indicator:hover{
+  background: rgb(240,182,127);
+}
+
+@media(max-width: 500){
+  .mat-paginator-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap!important;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mat-paginator-page-size, .mat-paginator-range-actions{
+    width: 45%;
+  }
+
+}

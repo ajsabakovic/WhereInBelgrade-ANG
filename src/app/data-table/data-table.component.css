@@ -66,29 +66,4 @@ mat-paginator{
   mat-paginator{
     padding-right: 0;
   }
-  /* pokusaj za paginator */
-  .mat-paginator-outer-container{
-    font-size: 0.8em!important;
-  }
-}
-
-/* pokusaj za strelice */
-.mat-focus-indicator {
-  background: white!important;
-}
-
-.mat-paginator-navigation-previous {
-  background: white!important;
-}
-
-.mat-icon-button {
-  background: white!important;
-}
-
-.mat-button-base{
-  background: white!important;
-}
-
-button{
-  background: white!important;
 }
