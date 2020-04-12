@@ -15,9 +15,13 @@ export class DogadjajService {
     return this.http.get<Dogadjaj[]>(this.baseUrl);
   }
 
-  getEventsByCategory(kategorija): Observable<Dogadjaj[]>{
-    return this.http.get<Dogadjaj[]>(this.baseUrl + 'kategorija/' + kategorija);
-  }
+getEventsByCategoryMainPage(kategorija: string): Observable<Dogadjaj[]>{
+  return this.http.get<Dogadjaj[]>(this.baseUrl + 'pocetna/' + kategorija);
+}
+
+getEventsByCategory(kategorija): Observable<Dogadjaj[]>{
+  return this.http.get<Dogadjaj[]>(this.baseUrl + 'kategorija/' + kategorija);
+}
 
   getEventsById(id): Observable<Dogadjaj> {
     return this.http.get<Dogadjaj>(this.baseUrl + id);
@@ -27,8 +31,14 @@ export class DogadjajService {
     return this.http.get<Dogadjaj>(this.baseUrl + id + '/user/' + userId);
   }
 
+
   deleteEvent(id: any): Observable<Dogadjaj[]> {
     console.log(this.baseUrl + id);
     return this.http.delete<Dogadjaj[]>(this.baseUrl + id);
   }
+
+insertEvent(userId: number, data: FormData){
+  return this.http.post(this.baseUrl + 'user/' + userId, data);
+}
+
 }

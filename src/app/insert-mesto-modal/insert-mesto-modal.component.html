@@ -1,0 +1,57 @@
+<ng-template #template>
+  <div class="surround">
+    <div class="modal-header">
+      <h4 class="modal-title my-title pull-left">Dodaj novo mesto</h4>
+      <button type="button" class="close pull-right btn-close" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="insertForm" (ngSubmit)="insertMesto()">
+        <div class="form-group">
+          <label for="naziv">Unesite naziv lokacije:</label>
+          <input type="text"  class="form-control input-element naziv" id="naziv"  name="naziv"
+          placeholder="Naziv lokacije" formControlName="naziv"
+          [ngClass] = "{'is-invalid': insertForm.get('naziv').touched && insertForm.get('naziv').errors}">
+          <div class="invalid-feedback">
+            Morate uneti naziv lokacije
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="ulica">Unesite naziv ulice:</label>
+          <input type="text"  class="form-control input-element ulica" id="ulica"  name="ulica"
+          placeholder="Naziv ulice" formControlName="ulica"
+          [ngClass] = "{'is-invalid': insertForm.get('ulica').touched && insertForm.get('ulica').errors}">
+          <div class="invalid-feedback">
+            Morate uneti naziv ulice
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="ulica">Unesite broj ulice:</label>
+          <input type="text"  class="form-control input-element brojUlice" id="brojUlice"  name="brojUlice"
+          placeholder="Broj ulice" formControlName="brojUlice"
+          [ngClass] = "{'is-invalid': insertForm.get('brojUlice').touched && insertForm.get('brojUlice').errors}">
+          <div class="invalid-feedback">
+            Morate uneti broj ulice
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="ulica">Unesite broj sprata:</label>
+            <input type="text"  class="form-control input-element sprat" id="sprat"  name="sprat"
+            placeholder="Sprat" formControlName="sprat">
+          </div>
+          <div class="col mr-2">
+            <label for="ulica">Unesite broj stana:</label>
+            <input type="text"  class="form-control input-element brojStana" id="brojStana"  name="brojStana"
+            placeholder="Stan" formControlName="brojStana">
+          </div>
+        </div>
+        <div class="form-group buttons">
+          <button [disabled]="!insertForm.valid" type="submit" class="btn btn-element btn-dodaj">Dodaj mesto</button>
+          <button type="button" class="btn btn-element" (click)="modalRef.hide()">Odustani</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ng-template>

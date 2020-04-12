@@ -1,5 +1,6 @@
 @import '../../../../node_modules/font-awesome/css/font-awesome.css';
 
+
 *{
     font-family: 'Raleway', sans-serif; 
 
@@ -179,12 +180,28 @@
         top: -9%;
     }
 
-    .jumbo h1, .jumbo p{
-        position: relative;
+    .jumbo h1{
+        /* position: relative;
         top: -120%;
         text-align: center;
         color: aliceblue;
+        z-index: 40; */
+        position: absolute;
+        top: 50%;
+        text-align: center;
+        width: 100%;
+        color: aliceblue;
         z-index: 40;
+    }
+
+    .jumbo p{
+        position: absolute;
+        top: 50%;
+        text-align: center;
+        width: 100%;
+        color: aliceblue;
+        z-index: 40;
+        margin-top: 90px;
     }
 
     .other{

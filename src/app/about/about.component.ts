@@ -29,5 +29,6 @@ export class AboutComponent implements OnInit {
         this.covidData.UkupnoOporavljenih = country.TotalRecovered;
       }
     });
+    console.log(this.covidData);
   }
 }

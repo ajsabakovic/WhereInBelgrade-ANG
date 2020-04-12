@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import { ModalModule, CollapseModule, BsDropdownModule} from 'ngx-bootstrap';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ModalModule, CollapseModule, BsDropdownModule, TimepickerModule, ButtonsModule} from 'ngx-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 
@@ -58,6 +58,13 @@ import { MatTableModule, MatTable } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { AdminEventsComponent } from './adminEvents/adminEvents.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import { InsertEventComponent } from './insert-event/insert-event.component';
+import { InsertEventResolver } from './_resolvers/insert-event.resolver';
+import { MestoInsertResolver } from './_resolvers/mesto-insert-event.resolver';
+import { FileUploadModule } from 'ng2-file-upload';
+import { InsertMestoModalComponent } from './insert-mesto-modal/insert-mesto-modal.component';
+
 
 export function tokenGetter(){
    return localStorage.getItem('token');
@@ -108,24 +115,32 @@ export function tokenGetter(){
       FavEventComponent,
       WeatherComponent,
       DataTableComponent,
-      AdminEventsComponent
+      AdminEventsComponent,
+      InsertEventComponent,
+      InsertMestoModalComponent,
+      FileUploadComponent
    ],
    imports: [
       BrowserModule,
       AppRoutingModule,
       HttpClientModule,
       FormsModule,
+      ReactiveFormsModule,
+      FileUploadModule,
       BrowserAnimationsModule,
       ModalModule.forRoot(),
       CollapseModule.forRoot(),
       BsDropdownModule.forRoot(),
-      RouterModule.forRoot(appRouter, {onSameUrlNavigation: 'reload'}),
+      RouterModule.forRoot(appRouter),
       BsDatepickerModule.forRoot(),
+      TimepickerModule.forRoot(),
+      ButtonsModule.forRoot(),
+      ReactiveFormsModule,
       JwtModule.forRoot({
-         config:{
+         config: {
             tokenGetter: tokenGetter,
             whitelistedDomains: ['localhost:5000'],
-            blacklistedRoutes:['localhost:5000/api/auth']
+            blacklistedRoutes: ['localhost:5000/api/auth']
          }
       }),
       MatSortModule,
@@ -135,7 +150,9 @@ export function tokenGetter(){
    providers: [
       ErrorInteceptorProvider,
       AlertifyService,
-      [DatePipe]
+      [DatePipe],
+      InsertEventResolver,
+      MestoInsertResolver
    ],
    bootstrap: [
       AppComponent

@@ -1,0 +1,161 @@
+<div class="content">
+  <div class="jumbo">
+      <img class="jumbo-img" src="{{photoUrl || '../../assets/images/default.jpg'}}" alt="slika">
+      <h1>{{insertForm.get('naziv').value || 'Kreirajte novi dogadjaj'}}</h1>
+  </div>
+      <form [formGroup]="insertForm" (submit)="insertEvent()" class="form">
+        <div class="red">
+          <div class="levi-deo">
+            <div class="custom-file file-element">
+              <input type="file" [ngClass] = "{'is-invalid': insertForm.get('image').touched && insertForm.get('image').errors}"
+                     formControlName="image" class="custom-file-input" id="customFile" (change)="onFileChange($event)" accept="image/*">
+              <label class="custom-file-label" for="customFile">{{imageName || "Odaberite sliku"}}</label>
+              <div class="invalid-feedback">Morate uneti opis</div>
+            </div>
+          </div>
+  
+          <div class="desni-deo">
+            <div class="form-group">
+              <label class = "labeli" for="naslov">Unesite naslov dogadjaja</label>
+              <input type="text" 
+                     name="naziv" 
+                     class="form-control standard" 
+                     formControlName="naziv"
+                     placeholder="Naziv"
+                     [ngClass] = "{'is-invalid': insertForm.get('naziv').errors
+                                    && insertForm.get('naziv').touched}">
+              <div class="invalid-feedback">Morate uneti naziv</div>
+            </div>
+    
+            <div class="form-group">
+              <label for="naslov" class = "labeli">Unesite opis dogadjaja</label>
+              <textarea type="text" 
+                     name="opis" 
+                     class="form-control standard" 
+                     formControlName="opis"
+                     placeholder="Opis dogadjaja"
+                     [ngClass] = "{'is-invalid': insertForm.get('opis').errors
+                                    && insertForm.get('opis').touched}"></textarea>
+              <div class="invalid-feedback">Morate uneti opis</div>
+            </div>
+          </div>
+        </div>
+        <div class="red">
+          <div class="levi-deo">
+            <div class="kategorije">
+              <label for="kategorije" class="labeli">Odaberite barem jednu kategoriju:</label>
+              <div id="kategorije" class="btn-group"
+                   formArrayName="kategorije"
+                   >
+                <label class="btn btn-element btn-kat"
+                       *ngFor = "let kategorija of insertForm['controls'].kategorije['controls']; let i = index"
+                       btnCheckbox 
+                       [ngClass] = "{'is-invalid': insertForm.get('kategorije').touched && insertForm.get('kategorije').errors}"
+                       name="i" [formControlName] = "i" 
+                       (click) = "getSelected()"
+                       tabindex="0" role="button">
+                       {{kategorije[i].naziv}}</label>
+              </div>
+              <div class="date-err" *ngIf = "insertForm.get('kategorije').touched && insertForm.get('kategorije').errors">Morate odabrati barem jednu kategoriju</div>
+            </div>
+          </div>
+          <div class="desni-deo">
+            <div class="form-group">
+              <div class="gore">
+                <label for="datumPocetka" class="datum-label vremena-label">Datum pocetka: </label>
+                <label for="vremePocetka" class="vreme-label vremena-label">Vreme pocetka: </label>
+              </div>
+              <div class="dole">
+                <input type="text" 
+                       name="datumPocetka" 
+                       id="datumPocetka" 
+                       [ngClass] = "{'is-invalid': insertForm.get('datumPocetka').errors && insertForm.get('datumPocetka').touched || 
+                       insertForm.get('datumPocetka').touched && 
+                       insertForm.get('vremePocetka').touched &&
+                       insertForm.get('datumZavrsetka').touched &&
+                       insertForm.get('vremeZavrsetka').touched &&
+                       insertForm.hasError('date-err')}"
+                       placeholder="Datum pocetka"
+                       [bsConfig] = "bsConfig1"
+                       bsDatepicker
+                       formControlName="datumPocetka"
+                       (bsValueChange) = "setOtherDateTimePicker()">
+                <timepicker  name="vremePocetka" 
+                       id="vremePocetka" 
+                       [ngClass] = "{'is-invalid': insertForm.get('vremePocetka').errors && insertForm.get('vremePocetka').touched 
+                      || insertForm.get('datumPocetka').touched && 
+                      insertForm.get('vremePocetka').touched &&
+                      insertForm.get('datumZavrsetka').touched &&
+                      insertForm.get('vremeZavrsetka').touched &&
+                      insertForm.hasError('date-err')}"
+                       placeholder="Vreme pocetka"
+                       formControlName="vremePocetka"
+                       [showMeridian]="false"></timepicker>
+              </div>
+            </div>
+          </div>
+          
+
+        </div>
+        <div class="red">
+          <div class="levi-deo">
+            <div class="lokacija">
+              <label class="labeli">Odaberite mesto održavanja</label>
+              <div class="donji">
+                <select id="mesta" formControlName="mesto"
+                        class="from-control">
+                  <option 
+                  *ngFor="let mesto of mesta" [ngValue]="mesto.mestoID" >{{mesto.naziv}}</option>
+                </select>
+                <span type="button" class="btn btn-mesta" (click)="createNewMesto()">Novo mesto <i class="fa fa-map-maker"></i></span>
+              </div>
+            </div>
+          </div>
+          <div class="desni-deo">
+            <div class="form-group">
+              <div class="gore">
+                <label for="datumZavrsetka" class="datum-label vremena-label">Datum zavrsetka: </label>
+                <label for="vremeZavrsetka" class="vreme-label vremena-label">Vreme zavrsetka: </label>
+              </div>
+              <div class="dole">
+                <input type="text" 
+                       name="datumZavrsetka" 
+                       id="datumZavrsetka" 
+                       [ngClass] = "{'is-invalid': insertForm.get('datumZavrsetka').errors && insertForm.get('datumZavrsetka').touched 
+                                      || insertForm.get('datumPocetka').touched && 
+                                      insertForm.get('vremePocetka').touched &&
+                                      insertForm.get('datumZavrsetka').touched &&
+                                      insertForm.get('vremeZavrsetka').touched &&
+                                      insertForm.hasError('date-err')}"
+                       placeholder="Datum pocetka"
+                       [bsConfig] = "bsConfig2"
+                       bsDatepicker
+                       formControlName="datumZavrsetka"
+                       [isDisabled] = "insertForm.get('datumPocetka').value === null">
+                <timepicker  name="vremeZavrsetka" 
+                       id="vremeZavrsetka" 
+                       [ngClass] = "{'is-invalid': insertForm.get('vremeZavrsetka').errors && insertForm.get('vremeZavrsetka').touched
+                                    || insertForm.get('datumPocetka').touched && 
+                                    insertForm.get('vremePocetka').touched &&
+                                    insertForm.get('datumZavrsetka').touched &&
+                                    insertForm.get('vremeZavrsetka').touched &&
+                                    insertForm.hasError('date-err') }"
+                       placeholder="Vreme zavrsetka"
+                       formControlName="vremeZavrsetka"
+                       [showMeridian]="false"></timepicker>
+                
+              </div>
+              <div class="date-err" *ngIf="insertForm.hasError('date-err')">Vreme zavrsetka mora biti nakon vremena pocetka</div>
+            </div>
+          </div>
+        </div>
+        <div class="red objavi">
+          <button type="submit" class="btn btn-objavi" [disabled] = "!insertForm.valid">Objavi dogadjaj</button>
+        </div>
+      </form>
+
+      <!-- <p class="uput">Form value: {{insertForm.value | json}}</p>
+      <p class="uput">Form status: {{insertForm.status | json}}</p> -->
+  </div>
+
+<app-insert-mesto-modal (reloadMesta)="reloadMesta($event)"></app-insert-mesto-modal>

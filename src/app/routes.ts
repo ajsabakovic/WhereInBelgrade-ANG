@@ -7,6 +7,9 @@ import { EventDetailsComponent } from './dogadjaji/event-details/event-details.c
 import { CategoryEventsComponent } from './dogadjaji/category-events/category-events.component';
 import { LikedEventsComponent } from './dogadjaji/liked-events/liked-events.component';
 import { AdminEventsComponent } from './adminEvents/adminEvents.component';
+import { InsertEventComponent } from './insert-event/insert-event.component';
+import { InsertEventResolver } from './_resolvers/insert-event.resolver';
+import { MestoInsertResolver } from './_resolvers/mesto-insert-event.resolver';
 
 export const appRouter: Routes = [
     {path: '', component: HomeComponent},
@@ -15,6 +18,7 @@ export const appRouter: Routes = [
     {path: 'events/favourites', component: LikedEventsComponent},
     {path: 'events/admin', component: AdminEventsComponent},
     {path: 'events/:id', component: EventDetailsComponent},
+    {path: 'events/new/insert', component: InsertEventComponent, resolve: {kategorije: InsertEventResolver, mesta: MestoInsertResolver}},
     {path: 'about', component: AboutComponent},
     {path: 'contact', component: ContactComponent},
     {path: '**', redirectTo: '', pathMatch: 'full'}

@@ -1,0 +1,278 @@
+*{
+    font-family: 'Raleway', sans-serif; 
+
+}
+
+.content{
+    height: 100%;
+    background-color: rgb(240, 182, 127);
+    overflow-x: hidden;
+    padding-bottom: 50px;
+}
+
+.jumbo{
+    position: relative;
+    height: 60vh;
+    overflow: hidden;
+    -webkit-box-shadow: inset 0px -9px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px -9px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: inset 0px -9px 5px 0px rgba(0,0,0,0.75);
+}
+
+.jumbo::after{
+    content: '';
+    position: absolute;
+    left: 0; top: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
+    width: 100%; height: 100%;
+}
+
+.jumbo-img{
+    display: block;
+    height: 100%;
+    width: auto;
+    position: relative;
+}
+
+.jumbo h1{
+    font-size: 4.2em;
+}
+
+.jumbo h1, .jumbo p{
+    position: relative;
+    top: -50%;
+    width: 100%;
+    text-align: center;
+    color: aliceblue;
+    z-index: 40;
+    font-weight: 800;
+    cursor: context-menu;
+}
+
+.jumbo p{
+    font-size: 1.5em;
+    margin-top: 28px;
+    font-weight: 100;
+}
+
+.forma{
+    margin: 0 auto;
+    width: 60%;
+}
+
+.uput{
+    font-size: 1.1em;
+    color: black;
+}
+
+.other{
+    width: 100%;
+    height: 100%;
+    /* min-height: 30vh; */
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column-reverse;
+    
+}
+
+.form{
+    display: block;
+    width: 100%;
+}
+
+.red{
+    display: flex;
+    margin: 25px auto 0;
+    width: 90%;
+    justify-content: space-between;
+}
+
+.levi-deo{
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.desni-deo{
+    width: 60%;
+}
+
+.custom-file-label{
+    background-color: rgb(246, 216, 174);
+    border-color: rgb(240, 182, 127);
+}
+
+.custom-file-input:lang(en)~.custom-file-label::after{
+    content: "Klikni da izabereš";
+    background-color: rgb(238, 99, 82);
+    font-family: 'Raleway', sans-serif;
+}
+
+
+.labeli{
+    font-size: 1.5em;
+}
+
+#vremePocetka[_ngcontent-lyb-c142] table, .vreme-label[_ngcontent-lyb-c142] table{
+    margin: 0 auto!important;
+}
+
+.standard, 
+#vremePocetka .bs-timepicker-field{
+    background-color: rgb(246, 216, 174)!important;
+    border-color: rgb(240, 182, 127)!important;
+}
+
+.ng-untouched.ng-pristine.ng-invalid .form-control.text-center.bs-timepicker-field{
+    background-color: rgb(246, 216, 174)!important;
+    border-color: rgb(240, 182, 127)!important;
+}
+
+.dole, 
+.gore{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#datumPocetka, 
+#datumZavrsetka{
+    height: 36px;
+    width: 60%;
+    background: rgb(246, 216, 174);
+    border: unset;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.datum-label{
+    width: 60%;
+}
+
+#vremePocetka, .vreme-label, #vremeZavrsetka{
+   width: 30%;
+}
+
+.vremena-label{
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.btn-element,
+.btn-mesta{
+    border: solid 1px black;
+    transition: all .4s ease-in-out; 
+}
+
+.btn-element.active{
+    background-color: rgb(238, 99, 82);
+}
+
+.btn-element:hover,
+.btn-mesta:hover{
+    background-color: rgb(238, 99, 82);
+}
+
+.btn-element:focus{
+    outline: none;
+}
+
+.date-err{
+    width: 100%;
+    text-align: center;
+    color: red;    
+}
+
+.lokacija{
+    width: 100%;
+    text-align: center;
+}
+
+.donji{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#mesta{
+    width: 60%;
+    border-radius: 5px;
+    background-color: rgb(246, 216, 174);
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.btn-mesta{
+    width: 30%;
+    border: 1px solid;
+}
+
+
+.objavi{
+    display: flex;
+    justify-content: center;
+}
+
+.btn-objavi{
+    min-width: 250px;
+    text-align: center;
+    background-color: rgb(246, 216, 174);
+    border: 2px solid rgb(246, 216, 174);
+    transition: all ease-in-out .4s;
+}
+
+.btn-objavi:hover,
+.btn-objavi:active{
+    border: 2px solid rgb(238, 99, 82);
+    background-color: rgb(238, 99, 82);
+}
+
+.btn-objavi:disabled{
+    background-color: rgb(246, 216, 174)!important;
+    border: 2px solid rgb(246, 216, 174)!important;
+}
+
+@media(min-width:720px){
+    .jumbo-img{
+        display: block;
+        height: auto;
+        width: 100%;
+        position: relative;
+        top: -9%;
+    }
+
+    .jumbo h1, .jumbo p{
+        position: absolute;
+        top: 50%;
+        text-align: center;
+        width: 100%;
+        color: aliceblue;
+        z-index: 40;
+    }
+
+    .other{
+        flex-direction: row;
+        justify-content: space-between;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .description{
+        width: 70%;
+        
+    }
+
+    .time-location{
+        width: 30%;
+    }
+
+    .categories{
+        justify-content: flex-end;
+        margin: 0;
+    }
+
+    .favourites{
+        width: 9%;
+    }
+}
+

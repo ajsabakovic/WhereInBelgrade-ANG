@@ -8,6 +8,11 @@ import { Dogadjaj } from 'src/app/_model/dogadjaj';
 })
 export class FavEventComponent implements OnInit {
   @Input()dogadjaj: Dogadjaj;
+  imageUrl = '../assets/images/default.jpg"';
+
+  proveraSlike(){
+    return this.dogadjaj?.url !== null;
+  }
 
   constructor() { }
 
