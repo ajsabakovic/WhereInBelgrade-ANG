@@ -45,7 +45,7 @@ export class DataTableDataSource extends DataSource<Dogadjaj> {
     // stream for the data-table to consume.
     // this.data = this.servis.getAll();
     // return this.data;
-    this.servis.getAll().subscribe(events => {
+    this.servis.getAllFull().subscribe(events => {
       console.log('usao u metodu');
       this.data = events as Dogadjaj[];
     });

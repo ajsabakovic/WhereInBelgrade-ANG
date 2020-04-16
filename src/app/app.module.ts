@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { ModalModule, CollapseModule, BsDropdownModule, TimepickerModule, ButtonsModule} from 'ngx-bootstrap';
+import { ModalModule, CollapseModule, BsDropdownModule, TimepickerModule, ButtonsModule, PaginationModule} from 'ngx-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 
@@ -64,6 +64,10 @@ import { InsertEventResolver } from './_resolvers/insert-event.resolver';
 import { MestoInsertResolver } from './_resolvers/mesto-insert-event.resolver';
 import { FileUploadModule } from 'ng2-file-upload';
 import { InsertMestoModalComponent } from './insert-mesto-modal/insert-mesto-modal.component';
+import { LikedEventsResolver } from './_resolvers/liked-events.resolver';
+import { DogadjajKategorijeResolver } from './_resolvers/dogadjaj-kategorije.resolver';
+import { EventsResolver } from './_resolvers/events.resolver';
+import { AuthGuard } from './_guards/auth.guard';
 
 
 export function tokenGetter(){
@@ -133,6 +137,7 @@ export function tokenGetter(){
       BsDropdownModule.forRoot(),
       RouterModule.forRoot(appRouter),
       BsDatepickerModule.forRoot(),
+      PaginationModule.forRoot(),
       TimepickerModule.forRoot(),
       ButtonsModule.forRoot(),
       ReactiveFormsModule,
@@ -152,7 +157,11 @@ export function tokenGetter(){
       AlertifyService,
       [DatePipe],
       InsertEventResolver,
-      MestoInsertResolver
+      MestoInsertResolver,
+      LikedEventsResolver,
+      DogadjajKategorijeResolver,
+      EventsResolver,
+      AuthGuard
    ],
    bootstrap: [
       AppComponent
