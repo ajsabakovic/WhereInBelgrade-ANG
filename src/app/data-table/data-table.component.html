@@ -10,7 +10,7 @@
     <!-- Izmeni Column -->
     <ng-container matColumnDef="izmeni">
       <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
-      <td mat-cell  *matCellDef="let event"><i class="fa fa-edit"></i></td>
+      <td mat-cell  *matCellDef="let event" [routerLink]="['/events/edit/',event.dogadjajID]"><i class="fa fa-edit"></i></td>
     </ng-container>
 
     <!-- Obrisi Column -->

@@ -37,8 +37,12 @@ getEventsByCategory(kategorija): Observable<Dogadjaj[]>{
     return this.http.delete<Dogadjaj[]>(this.baseUrl + id);
   }
 
-insertEvent(userId: number, data: FormData){
-  return this.http.post(this.baseUrl + 'user/' + userId, data);
-}
+  insertEvent(userId: number, data: FormData) {
+    return this.http.post(this.baseUrl + 'user/' + userId, data);
+  }
+
+  editEvent(userId: number, data: FormData) {
+    return this.http.put(this.baseUrl + 'user/' + userId, data);
+  }
 
 }

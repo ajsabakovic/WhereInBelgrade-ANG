@@ -64,6 +64,8 @@ import { InsertEventResolver } from './_resolvers/insert-event.resolver';
 import { MestoInsertResolver } from './_resolvers/mesto-insert-event.resolver';
 import { FileUploadModule } from 'ng2-file-upload';
 import { InsertMestoModalComponent } from './insert-mesto-modal/insert-mesto-modal.component';
+import { EditEventComponent } from './edit-event/edit-event.component';
+import { EditEventResolver } from './_resolvers/edit-event.resolver';
 
 
 export function tokenGetter(){
@@ -118,7 +120,8 @@ export function tokenGetter(){
       AdminEventsComponent,
       InsertEventComponent,
       InsertMestoModalComponent,
-      FileUploadComponent
+      FileUploadComponent,
+      EditEventComponent
    ],
    imports: [
       BrowserModule,
@@ -152,7 +155,8 @@ export function tokenGetter(){
       AlertifyService,
       [DatePipe],
       InsertEventResolver,
-      MestoInsertResolver
+      MestoInsertResolver,
+      EditEventResolver
    ],
    bootstrap: [
       AppComponent

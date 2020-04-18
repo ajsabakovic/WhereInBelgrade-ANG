@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { InsertEventComponent } from '../insert-event/insert-event.component';
 
 @Component({
   selector: 'app-adminEvents',
@@ -12,4 +13,7 @@ export class AdminEventsComponent implements OnInit {
   ngOnInit() {
   }
 
+  edit(event: Event){
+      
+  }
 }

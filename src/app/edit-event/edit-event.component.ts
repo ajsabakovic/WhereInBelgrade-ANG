@@ -1,37 +1,35 @@
-import { Component, OnInit, ViewChild, ChangeDetectorRef, Input } from "@angular/core";
-import { FormGroup, FormBuilder, Validators, FormArray, ValidatorFn, FormControl } from "@angular/forms";
-import { BsDatepickerConfig } from "ngx-bootstrap";
-import { AlertifyService } from "../_services/alertify.service";
-import { DogadjajService } from "../_services/dogadjaj.service";
-import { Dogadjaj } from "../_model/dogadjaj";
-import { Mesto } from "../_model/mesto";
-import { Kategorija } from "../_model/kategorija";
-import { KategorijaService } from '../_services/kategorija.service';
-import { Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError, RouterEvent, ActivatedRoute } from '@angular/router';
-import { InsertMestoModalComponent } from '../insert-mesto-modal/insert-mesto-modal.component';
+import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { FormGroup, FormBuilder, FormArray, ValidatorFn, FormControl, Validators } from '@angular/forms';
+import { BsDatepickerConfig } from 'ngx-bootstrap';
+import { Dogadjaj } from '../_model/dogadjaj';
+import { Mesto } from '../_model/mesto';
+import { Kategorija } from '../_model/kategorija';
+import { AlertifyService } from '../_services/alertify.service';
+import { ActivatedRoute } from '@angular/router';
 import { MestoService } from '../_services/mesto.service';
-import { FileUploader } from 'ng2-file-upload';
-import { environment } from 'src/environments/environment';
+import { DogadjajService } from '../_services/dogadjaj.service';
 import { AuthService } from '../_services/auth.service';
-import { async } from '@angular/core/testing';
-import { KategorijeComponent } from '../dogadjaji/kategorije/kategorije.component';
 
 @Component({
-  selector: "app-insert-event",
-  templateUrl: "./insert-event.component.html",
-  styleUrls: ["./insert-event.component.css"],
+  selector: 'app-edit-event',
+  templateUrl: './edit-event.component.html',
+  styleUrls: ['./edit-event.component.css']
 })
-export class InsertEventComponent implements OnInit {
-  insertForm: FormGroup;
+export class EditEventComponent implements OnInit {
+  editForm: FormGroup;
   bsConfig1: Partial<BsDatepickerConfig>;
   bsConfig2: Partial<BsDatepickerConfig>;
   dogadjaj: Dogadjaj;
   mesta: Mesto[];
   kategorije: Kategorija[];
-  @ViewChild(InsertMestoModalComponent) insertMesto;
+  @ViewChild(EditEventComponent) insertMesto;
   photoUrl: any;
   imageName = '';
   file: File;
+  eventForEdit: Dogadjaj;
+  datum1: Date;
+  datum2: Date;
+  pocetneKategorije: Kategorija[];
 
   constructor(
     private alertify: AlertifyService,
@@ -43,12 +41,12 @@ export class InsertEventComponent implements OnInit {
     private authService: AuthService
   ) {  }
 
-
   ngOnInit() {
     // postavlja vrednosti koje ucitamo preko resolvera, lista mesta i lista kategorija
     this.route.data.subscribe(data => {
       this.kategorije = data['kategorije'];
       this.mesta = data['mesta'];
+      this.eventForEdit = data['dogadjaj'];
     });
 
     // postavljamo vrednost minimalnog datuma, da ne može da bude neki datum pre današnjeg
@@ -56,32 +54,39 @@ export class InsertEventComponent implements OnInit {
       minDate: new Date(),
     };
 
-    // poziv metode za kreiranje naše forme
+    this.setDateAndTime();
+    this.photoUrl = this.eventForEdit.url;
+    this.pocetneKategorije = this.eventForEdit.kategorije;
     this.createInsertForm();
   }
 
   // metoda za kreiranje forme
   createInsertForm() {
-    this.insertForm = this.fb.group({
-      naziv: ["", Validators.required],
-      opis: ["", Validators.required],
-      datumPocetka: [null, Validators.required],
-      vremePocetka: [null, Validators.required],
-      datumZavrsetka: [null, Validators.required],
-      vremeZavrsetka: [null, Validators.required],
+    this.editForm = this.fb.group({
+      naziv: [this.eventForEdit.naziv, Validators.required],
+      opis: [this.eventForEdit.opis, Validators.required],
+      datumPocetka: [this.datum1, Validators.required],
+      vremePocetka: [this.datum1, Validators.required],
+      datumZavrsetka: [this.datum2, Validators.required],
+      vremeZavrsetka: [this.datum2, Validators.required],
       kategorije: new FormArray([], this.minSelectedCheckboxes(1)),
-      mesto: [this.mesta[0].mestoID, Validators.required],
-      image: [null, Validators.required]
+      mesto: [this.eventForEdit.lokacija.mestoID, Validators.required],
+      image: [null]
     }, {validator: this.dateTimeValidator});
 
     // dodaje elemente u formArray vezane za kategorije
     this.addCheckboxes();
   }
 
+  setDateAndTime(){
+    this.datum1 = new Date(this.eventForEdit.datumPocetka);
+    this.datum2 = new Date(this.eventForEdit.datumZavrsetka);
+  }
+
   // metoda koja se poziva kada se odabere fajl ili kada se doda neki novi fajl u fajl inputu
   onFileChange(event) {
     const reader = new FileReader();
-   
+
     // proverava da li imamo učitan neki fajl
     if( event.target.files && event.target.files.length ) {
       const [secFile] = event.target.files;
@@ -92,7 +97,7 @@ export class InsertEventComponent implements OnInit {
       this.file = file;
       // čuvamo ime našeg fajla u ovoj varijabli, koju pozivamo, kako bismo ga prikazali tamo kad se učita
       this.imageName = file.name;
-    
+
       reader.onload = () => {
         // ova varijabla služi za prikazivanje novoučitane slike, zbog toga i koristimo reader ovaj
         this.photoUrl = reader.result;
@@ -107,18 +112,27 @@ export class InsertEventComponent implements OnInit {
 
   // metoda koja dodaje u onaj FormArray vrednosti za naše kategorije
    addCheckboxes() {
-    if(this.kategorije !== undefined){
+    if(this.kategorije !== undefined) {
       this.kategorije.forEach((o, i) => {
-        const control = new FormControl(i === 0); // if first item set to true, else false
-        (this.insertForm.controls.kategorije as FormArray).push(control);
-        console.log(control);
+        let control = null;
+        this.pocetneKategorije.forEach( kat => {
+          if(i === (kat.kategorijaID - 1)) {
+            control = new FormControl(true);
+          }
+           // if first item set to true, else false
+          // console.log(i, kat.kategorijaID)
+        });
+        if (control === null) {
+          control = new FormControl(false);
+        }
+        (this.editForm.controls.kategorije as FormArray).push(control);
       });
     }
   }
 
 
    // validator za kategorije, mora da bude minimalno jedna kategorija čekirana, ako nije onda nije zadovoljeno
-   minSelectedCheckboxes(min = 1){
+   minSelectedCheckboxes(min = 1) {
     const validator: ValidatorFn = (formArray: FormArray) => {
       const totalSelected = formArray.controls
         // get a list of checkbox values (boolean)
@@ -133,15 +147,15 @@ export class InsertEventComponent implements OnInit {
 
 
   // vraća nam indekse iz našeg niza this.kategorije onih kategorija koje su čekirane u checkbox-u
-  getSelected(){
-    const selektovaneKategorije = this.insertForm.value.kategorije
+  getSelected() {
+    const selektovaneKategorije = this.editForm.value.kategorije
       .map((v, i) => (v ? this.kategorije[i].kategorijaID : null))
       .filter(v => v !== null);
     return selektovaneKategorije;
   }
 
   // vraća nam listu kategorija koje su čekirane, ukoliko im prosledimo indekse, koje dobijemo iz prethodne metode
-  private getKategorije(indexi: number[]): Kategorija[]{
+  private getKategorije(indexi: number[]): Kategorija[] {
     let kate: Kategorija[] = [];
     for (const i of indexi) {
       kate.push(this.kategorije[i-1]);
@@ -181,43 +195,51 @@ export class InsertEventComponent implements OnInit {
       vremeZavrsetka.getMinutes()
     );
 
-    console.log('Pocetak: ' + ukupniPocetak);
-    console.log('Kraj:' + ukupniKraj);
+    // console.log('Pocetak: ' + ukupniPocetak);
+    // console.log('Kraj:' + ukupniKraj);
 
     return (ukupniPocetak < ukupniKraj) ? null : {'date-err': true};
   }
 
   // funkcija za kreiranje sadržaja koji šaljemo apiju i pozivanje apija
-  insertEvent() {
-    if(!this.insertForm.valid) { return; }
+  editEvent() {
+    if (!this.editForm.valid) {
+      this.alertify.message("Niste popunili sva obavezna polja!");
+      return;
+    }
+    if (!this.editForm.dirty) {
+      this.alertify.message("Niste promenili ni jedan podatak o događaju!");
+      return;
+    }
 
     const formData = new FormData();
-    formData.append('naziv', this.insertForm.get('naziv').value);
-    formData.append('opis', this.insertForm.get('opis').value);
+    formData.append('dogadjajID', this.eventForEdit.dogadjajID.toString());
+    formData.append('naziv', this.editForm.get('naziv').value);
+    formData.append('opis', this.editForm.get('opis').value);
 
     const datumPocetka: Date = this.generateDatumPocetka();
     const datumZavrsetka: Date = this.generateDatumZavrsetka();
 
     formData.append('datumPocetka', datumPocetka.toUTCString());
     formData.append('datumZavrsetka', datumZavrsetka.toUTCString());
-    formData.append('mestoID', this.insertForm.get('mesto').value);
+    formData.append('mestoID', this.editForm.get('mesto').value);
     for (const kat of this.getKategorije(this.getSelected())) {
       formData.append('kategorija' + kat.kategorijaID, kat.kategorijaID.toString());
     }
     formData.append('image', this.file);
     this.useService(formData);
-    
   }
 
   // funkcija koja konkretno poziva naš api, i prosleđuje mu sadržaj
-  private useService(formData: FormData){
-    this.dogadjajService.insertEvent(this.authService.decodedToken.nameid, formData)
-    .subscribe(()=> {
-      this.alertify.success('Uspešno ste objavili događaj');
+  private useService(formData: FormData) {
+    console.log('usao u useServce');
+    this.dogadjajService.editEvent(this.authService.decodedToken.nameid, formData)
+    .subscribe(() => {
+      this.alertify.success('Uspešno ste izmenili događaj');
       // ukoliko je uspešno objavljen događaj, onda reloaduje formu
       this.reloadForm();
     }, error => {
-      this.alertify.error(error);
+      this.alertify.error('Greska pri izmeni');
     })
   }
 
@@ -229,7 +251,7 @@ export class InsertEventComponent implements OnInit {
       minDate: new Date(),
     };
 
-    this.insertForm.reset({
+    this.editForm.reset({
       naziv : null,
       opis: null,
       datumPocetka: null,
@@ -245,8 +267,8 @@ export class InsertEventComponent implements OnInit {
 
   // generiše datum početka
   private generateDatumPocetka(){
-    const datumPocetka: Date = this.insertForm.get("datumPocetka").value;
-    const vremePocetka: Date = this.insertForm.get("vremePocetka").value;
+    const datumPocetka: Date = this.editForm.get("datumPocetka").value;
+    const vremePocetka: Date = this.editForm.get("vremePocetka").value;
 
     const ukupniPocetak = new Date(
       datumPocetka.getFullYear(),
@@ -260,8 +282,8 @@ export class InsertEventComponent implements OnInit {
 
   // generiše datum završetka
   private generateDatumZavrsetka(){
-    const datumZavrsetka: Date = this.insertForm.get("datumZavrsetka").value;
-    const vremeZavrsetka: Date = this.insertForm.get("vremeZavrsetka").value;
+    const datumZavrsetka: Date = this.editForm.get("datumZavrsetka").value;
+    const vremeZavrsetka: Date = this.editForm.get("vremeZavrsetka").value;
 
     const ukupniKraj = new Date(
       datumZavrsetka.getFullYear(),
@@ -277,7 +299,7 @@ export class InsertEventComponent implements OnInit {
   // funkcija koja postavlja datepicker tako da vrednosti završetka ne mogu da budu one pre vrednosti početka
   setOtherDateTimePicker() {
     this.bsConfig2 = {
-      minDate: this.insertForm.get("datumPocetka").value,
+      minDate: this.editForm.get("datumPocetka").value,
     };
   }
 

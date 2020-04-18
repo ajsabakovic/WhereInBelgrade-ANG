@@ -19,4 +19,9 @@ export class EventsService {
   getAll(): Observable<Dogadjaj[]>{
     return this.http.get<Dogadjaj[]>(this.baseUrl + 'dogadjaji');
   }
+
+  getEventById(id: any): Observable<Dogadjaj>{
+    return this.http.get<Dogadjaj>(this.baseUrl + '/dogadjaji/'  + id);
+  }
+
 }
