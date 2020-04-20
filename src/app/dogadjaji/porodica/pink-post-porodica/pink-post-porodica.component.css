@@ -53,6 +53,7 @@
 
 @media(min-width:700px){
     .card{
+        width: 95%;
         /* width: 30%; */
     }
 }

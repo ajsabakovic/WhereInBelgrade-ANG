@@ -5,12 +5,12 @@
   </div>
       <form [formGroup]="editForm" (submit)="editEvent()" class="form">
         <div class="red">
-          <div class="levi-deo">
-            <div class="custom-file file-element">
+          <div class="levi-deo prosireno">
+            <div class="custom-file file-element prosireno">
               <input type="file" [ngClass] = "{'is-invalid': editForm.get('image').touched && editForm.get('image').errors}"
                      formControlName="image" class="custom-file-input" id="customFile" (change)="onFileChange($event)" accept="image/*">
               <label class="custom-file-label" for="customFile">{{imageName || "Odaberite sliku"}}</label>
-              <div class="invalid-feedback">Morate uneti opis</div>
+              <div class="invalid-feedback">Morate odabrati sliku</div>
             </div>
           </div>
   
@@ -27,6 +27,13 @@
               <div class="invalid-feedback">Morate uneti naziv</div>
             </div>
     
+            <div class="custom-file file-element smanjeno">
+              <input type="file" [ngClass] = "{'is-invalid': editForm.get('image').touched && editForm.get('image').errors}"
+                     formControlName="image" class="custom-file-input" id="customFile" (change)="onFileChange($event)" accept="image/*">
+              <label class="custom-file-label" for="customFile">{{imageName || "Odaberite sliku"}}</label>
+              <div class="invalid-feedback">Morate odabrati sliku</div>
+            </div>
+
             <div class="form-group">
               <label for="naslov" class = "labeli">Unesite opis dogadjaja</label>
               <textarea type="text" 
@@ -41,7 +48,7 @@
           </div>
         </div>
         <div class="red">
-          <div class="levi-deo">
+          <div class="levi-deo prosireno">
             <div class="kategorije">
               <label for="kategorije" class="labeli">Odaberite barem jednu kategoriju:</label>
               <div id="kategorije" class="btn-group"
@@ -62,10 +69,11 @@
           <div class="desni-deo">
             <div class="form-group">
               <div class="gore">
-                <label for="datumPocetka" class="datum-label vremena-label">Datum pocetka: </label>
-                <label for="vremePocetka" class="vreme-label vremena-label">Vreme pocetka: </label>
+                <label for="datumPocetka" class="datum-label vremena-label prosireno2">Datum pocetka: </label>
+                <label for="vremePocetka" class="vreme-label vremena-label prosireno2">Vreme pocetka: </label>
               </div>
               <div class="dole">
+                <label for="datumPocetka" class="datum-label vremena-label smanjeno2">Datum pocetka: </label>
                 <input type="text" 
                        name="datumPocetka" 
                        id="datumPocetka" 
@@ -81,6 +89,7 @@
                        [bsConfig]="{ dateInputFormat: 'MM/DD/YYYY' }"
                        formControlName="datumPocetka"
                        (bsValueChange) = "setOtherDateTimePicker()">
+                <label for="vremePocetka" class="vreme-label vremena-label smanjeno2">Vreme pocetka: </label>
                 <timepicker  name="vremePocetka" 
                        id="vremePocetka" 
                        [ngClass] = "{'is-invalid': editForm.get('vremePocetka').errors && editForm.get('vremePocetka').touched 
@@ -99,7 +108,7 @@
 
         </div>
         <div class="red">
-          <div class="levi-deo">
+          <div class="levi-deo prosireno">
             <div class="lokacija">
               <label class="labeli">Odaberite mesto održavanja</label>
               <div class="donji">
@@ -115,10 +124,11 @@
           <div class="desni-deo">
             <div class="form-group">
               <div class="gore">
-                <label for="datumZavrsetka" class="datum-label vremena-label">Datum zavrsetka: </label>
-                <label for="vremeZavrsetka" class="vreme-label vremena-label">Vreme zavrsetka: </label>
+                <label for="datumZavrsetka" class="datum-label vremena-label prosireno2">Datum zavrsetka: </label>
+                <label for="vremeZavrsetka" class="vreme-label vremena-label prosireno2">Vreme zavrsetka: </label>
               </div>
               <div class="dole">
+                <label for="datumZavrsetka" class="datum-label vremena-label smanjeno2">Datum zavrsetka: </label>
                 <input type="text" 
                        name="datumZavrsetka" 
                        id="datumZavrsetka" 
@@ -128,11 +138,12 @@
                                       editForm.get('datumZavrsetka').touched &&
                                       editForm.get('vremeZavrsetka').touched &&
                                       editForm.hasError('date-err')}"
-                       placeholder="Datum pocetka"
+                       placeholder="Datum zavrsetka"
                        [bsConfig] = "bsConfig2"
                        bsDatepicker
                        formControlName="datumZavrsetka"
                        [isDisabled] = "editForm.get('datumPocetka').value === null">
+                <label for="vremeZavrsetka" class="vreme-label vremena-label smanjeno2">Vreme zavrsetka: </label>
                 <timepicker  name="vremeZavrsetka" 
                        id="vremeZavrsetka" 
                        [ngClass] = "{'is-invalid': editForm.get('vremeZavrsetka').errors && editForm.get('vremeZavrsetka').touched
@@ -150,8 +161,42 @@
             </div>
           </div>
         </div>
+
+        <div class="red smanjeno">
+          <div class="lokacija">
+            <label class="labeli">Odaberite mesto održavanja</label>
+            <div class="donji">
+              <select id="mesta" formControlName="mesto"
+                      class="from-control">
+                <option 
+                *ngFor="let mesto of mesta" [ngValue]="mesto.mestoID" >{{mesto.naziv}}</option>
+              </select>
+              <span type="button" class="btn btn-mesta" (click)="createNewMesto()">Novo mesto <i class="fa fa-map-maker"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="red smanjeno">
+          <div class="kategorije">
+            <label for="kategorije" class="labeli">Odaberite barem jednu kategoriju:</label>
+            <div id="kategorije" class="btn-group"
+                 formArrayName="kategorije"
+                 >
+              <label class="btn btn-element btn-kat"
+                     *ngFor = "let kategorija of editForm['controls'].kategorije['controls']; let i = index"
+                     btnCheckbox 
+                     [ngClass] = "{'is-invalid': editForm.get('kategorije').touched && editForm.get('kategorije').errors}"
+                     name="i" [formControlName] = "i" 
+                     (click) = "getSelected()"
+                     tabindex="0" role="button">
+                     {{kategorije[i].naziv}}</label>
+            </div>
+            <div class="date-err" *ngIf = "editForm.get('kategorije').touched && editForm.get('kategorije').errors">Morate odabrati barem jednu kategoriju</div>
+          </div>
+        </div>
+
         <div class="red objavi">
-          <button type="submit" class="btn btn-objavi" [disabled] = "!editForm.valid">Izmeni dogadjaj</button>
+          <button type="submit" class="btn btn-objavi" [disabled] = "!editForm.dirty || !editForm.valid">Izmeni dogadjaj</button>
         </div>
       </form>
 

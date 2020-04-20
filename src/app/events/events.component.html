@@ -4,11 +4,22 @@
 <div class="pozadina">
   <h1 class="title">Predstojeći događaji</h1>
   <div class="error" *ngIf="!hasEvents()">
-      <h2 class="nazalost" >Trenutno nema dogadjaja u ovoj kategoriji...</h2>
+      <h2 class="nazalost" >Trenutno nema dogadjaja...</h2>
       <img src="../../../assets/images/error.png" alt="error">
   </div>
   <div class="box" *ngIf="hasEvents()">
-    <app-whole-event *ngFor="let dogadjaj of dogadjaji" [dogadjaj]="dogadjaj"></app-whole-event>
+    <div class="events" *ngIf="hasEvents()">
+      <app-whole-event *ngFor="let dogadjaj of dogadjaji" [dogadjaj]="dogadjaj"></app-whole-event>
+    </div>
+      <div *ngIf="hasEvents()" class="d-flex justify-content-center">
+        <pagination [boundaryLinks]="true" 
+                    [totalItems]="pagination.totalItems"
+                    [itemsPerPage] = "pagination.itemsPerPage"
+                    [(ngModel)]="pagination.currentPage"
+                    (pageChanged) = "pageChanged($event)"
+                  previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+        </pagination>
+      </div>
   </div>
 </div>
 

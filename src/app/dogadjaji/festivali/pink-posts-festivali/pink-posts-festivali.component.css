@@ -5,17 +5,18 @@
 }
 
 .post{
-    width: 30%;
+    width: 100%;
 }
 
 .posts{
     margin: 0 auto;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-evenly;
-    width: 95%;
+    width: 94%;
     padding-bottom: 20px;
 }
+
 .naslov{
     padding-top: 60px;
     padding-bottom: 50px;
@@ -43,10 +44,14 @@
     width: 50%;
 }
 
-@media(max-width:900px){
+@media(min-width:900px){
     .posts{
-        flex-direction: column;
-        width: 70%;
+        flex-direction: row;
+        width: 95%;
+    }
+    
+    .post{
+        width: 30%;
     }
 
     

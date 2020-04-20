@@ -50,6 +50,6 @@
 
 @media(min-width:700px){
     .card{
-        /* width: 30%; */
+        width: 95%;
     }
 }

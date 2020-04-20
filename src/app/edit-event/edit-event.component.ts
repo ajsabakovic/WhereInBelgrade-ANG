@@ -232,12 +232,12 @@ export class EditEventComponent implements OnInit {
 
   // funkcija koja konkretno poziva naš api, i prosleđuje mu sadržaj
   private useService(formData: FormData) {
-    console.log('usao u useServce');
+    // console.log('usao u useServce');
     this.dogadjajService.editEvent(this.authService.decodedToken.nameid, formData)
     .subscribe(() => {
       this.alertify.success('Uspešno ste izmenili događaj');
-      // ukoliko je uspešno objavljen događaj, onda reloaduje formu
-      this.reloadForm();
+      // samo postavlja formu da vise nije dirty
+      this.editForm.markAsPristine();
     }, error => {
       this.alertify.error('Greska pri izmeni');
     })

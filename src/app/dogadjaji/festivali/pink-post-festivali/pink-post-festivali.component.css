@@ -2,7 +2,7 @@
 .card{
     font-family: 'Raleway', sans-serif;
     color:rgb(212, 211, 209);
-    width: 90%;
+    width: 100%;
     margin: 10px auto 50px;
     text-align: center;
     background-color: rgb(240, 97, 89);
@@ -52,6 +52,6 @@
 
 @media(min-width:700px){
     .card{
-        /* width: 30%; */
+        width: 95%;
     }
 }

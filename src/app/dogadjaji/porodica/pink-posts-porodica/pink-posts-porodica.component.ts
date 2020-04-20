@@ -18,7 +18,7 @@ export class PinkPostsPorodicaComponent implements OnInit {
   }
 
   loadEvents(){
-    this.eventService.getEventsByCategory('porodica').subscribe((dogadjaji: Dogadjaj[]) => {
+    this.eventService.getEventsByCategoryMainPage('porodica').subscribe((dogadjaji: Dogadjaj[]) => {
       this.dogadjaji = dogadjaji;
     });
   }

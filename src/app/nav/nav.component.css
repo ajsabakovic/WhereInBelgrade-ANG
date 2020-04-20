@@ -71,3 +71,24 @@ nav button{
     background-color:rgb(78, 205, 196);
     color: white;
 }
+
+.span-toggler{
+    width: 100%;
+    color: rgb(240, 97, 89);
+    height: 100%;
+    font-size: 1.2em;
+}
+
+.collapse form{
+    display: flex;
+    justify-content: center;
+}
+
+.collapse .dropdown-menu.show{
+    background-color: rgb(3, 48, 65);
+    color: rgb(240, 97, 89)!important;
+}
+
+.collapse a.dropdown-item{
+    color:rgb(240, 97, 89)!important;
+}

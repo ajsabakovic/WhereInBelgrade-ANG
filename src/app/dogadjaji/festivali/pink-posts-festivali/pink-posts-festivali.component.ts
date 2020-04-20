@@ -18,7 +18,7 @@ export class PinkPostsFestivaliComponent implements OnInit {
   }
 
   loadEvents(){
-    this.eventService.getEventsByCategory('festivali').subscribe((dogadjaji: Dogadjaj[]) => {
+    this.eventService.getEventsByCategoryMainPage('festivali').subscribe((dogadjaji: Dogadjaj[]) => {
       this.dogadjaji = dogadjaji;
     });
   }

@@ -38,3 +38,7 @@ a{
 .sredina:hover{
     background: rgba(240, 97, 89,0.7) url("../../../assets/images/categories/festival.png") no-repeat center 50%/cover;
 }
+
+.selektovana{
+    background: rgba(240, 97, 89,0.7) url("../../../assets/images/categories/festival.png") no-repeat center 50%/cover;
+}

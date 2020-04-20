@@ -1,5 +1,6 @@
 <div class="okvir">
-  <div class="sredina" [routerLink]="['/events/category/', kategorija]" >
+  <div class="sredina" [routerLink]="['/events/category/', kategorija]" 
+  [ngClass]="{selektovana: proveraKategorije()}">
     <h1>Sport</h1>
   </div>
 </div>

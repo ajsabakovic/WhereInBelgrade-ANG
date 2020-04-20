@@ -68,6 +68,38 @@ input:focus,
   border-color: rgb(240, 182, 127)!important;
 }
 
+/* -- Pagination -- */
+.pagination{
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  font-size: 1.2em;
+}
+
+.pagination .page-link{
+  background: rgb(240, 182, 127);
+  color: rgb(2, 47, 64);
+  border: rgb(238, 99, 82) 1px solid;
+  transition: all .4s ease-in-out;
+}
+
+.pagination .page-link:hover{
+  background: rgb(238, 99, 82);
+}
+
+.pagination .active .page-link{
+  background: rgb(238, 99, 82);
+  font-weight: 700;
+  color: rgb(240, 182, 127);
+  border: rgb(238, 99, 82) 1px solid;
+}
+
+.pagination .disabled .page-link{
+  background: rgb(240, 182, 127);
+  color: rgb(2, 47, 64);
+  border: rgb(238, 99, 82) 1px solid;
+  transition: all .4s ease-in-out;
+  opacity: 0.6;
+}
 /* Data table */
 .mat-focus-indicator{
   background: rgb(3, 48, 65);
@@ -105,6 +137,10 @@ mat-option:hover{
   color: rgb(3, 48, 65);
 }
 
+.mat-paginator-page-size{
+  display: none!important;
+}
+
 .mat-paginator-navigation-next{
   margin-left: 5px!important;
 }
@@ -125,5 +161,4 @@ mat-option:hover{
   .mat-paginator-page-size, .mat-paginator-range-actions{
     width: 45%;
   }
-
 }

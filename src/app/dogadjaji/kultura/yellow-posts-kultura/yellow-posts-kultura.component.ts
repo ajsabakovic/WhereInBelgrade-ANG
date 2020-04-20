@@ -18,7 +18,7 @@ export class YellowPostsKulturaComponent implements OnInit {
   }
 
   loadEvents(){
-    this.eventService.getEventsByCategory('kultura').subscribe((dogadjaji: Dogadjaj[]) => {
+    this.eventService.getEventsByCategoryMainPage('kultura').subscribe((dogadjaji: Dogadjaj[]) => {
       this.dogadjaji = dogadjaji;
     });
   }

@@ -1,9 +1,10 @@
 <nav class="navbar navbar-expand-md fixed-top">
   <div class="container">
     <a class="navbar-brand" [routerLink]="['/home']"><img src="../../assets/images/second.png" alt="HTML5 Icon"></a>
-    <!-- <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button> -->
+    <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon fa span-toggler"
+        [ngClass]="{'fa-times': !isCollapsed, 'fa-bars': isCollapsed}"></span>
+    </button>
   
     <div class="collapse navbar-collapse collapsed" id="navbarsExampleDefault" [collapse]="isCollapsed">
       <ul class="navbar-nav mr-auto">

@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges } from '@
 import { EventsService } from 'src/app/_services/events.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { Dogadjaj } from 'src/app/_model/dogadjaj';
+import { PaginatedResult, Pagination } from 'src/app/_model/pagination';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dogadjajKategorije',
@@ -10,23 +12,32 @@ import { Dogadjaj } from 'src/app/_model/dogadjaj';
 })
 export class DogadjajKategorijeComponent implements OnInit {
   @Input() kategorija: string;
-
   dogadjaji: Dogadjaj[];
-  constructor(private eventsService: EventsService, private alertify: AlertifyService) { }
+  pagination: Pagination;
+
+  constructor(private eventsService: EventsService, private alertify: AlertifyService,
+    private route: ActivatedRoute) {
+      this.route.data.subscribe(data => {
+        this.dogadjaji = data['events'].result;
+        this.pagination = data['events'].paginaton;
+        console.log(data['events'].pagination)
+      });
+     }
 
   ngOnInit() {
-      this.selectedCategory();
+      
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(this.kategorija);
+    this.pagination.currentPage = 1;
     this.selectedCategory();
   }
 
   selectedCategory(){
     console.log(this.kategorija);
-    this.eventsService.getEventsByCategory(this.kategorija).subscribe((dogadjaji: Dogadjaj[]) => {
-      this.dogadjaji = dogadjaji;
+    this.eventsService.getEventsByCategory(this.kategorija, this.pagination.currentPage, this.pagination.itemsPerPage)
+    .subscribe((res: PaginatedResult<Dogadjaj[]>) => {
+      this.dogadjaji = res.result;
     }, error => {
       this.alertify.error(error);
     });
@@ -34,6 +45,11 @@ export class DogadjajKategorijeComponent implements OnInit {
 
   hasEvents(){
     return this.dogadjaji !== undefined && this.dogadjaji.length !== 0;
+  }
+
+  pageChanged(event: any) {
+    this.pagination.currentPage = event.page;
+    this.selectedCategory();
   }
   // loadEvents(){
   //   this.eventsService.getAll().subscribe((dogadjaji: Dogadjaj[]) => {
