@@ -54,4 +54,8 @@
     .card{
         width: 95%;
     }
+    
+    .card-title{
+        min-height: 60px;
+    }
 }

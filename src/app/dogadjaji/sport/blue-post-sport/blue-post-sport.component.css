@@ -55,4 +55,7 @@
         width: 95%;
         /* width: 30%; */
     }
+    .card-title{
+        min-height: 60px;
+    }
 }
