@@ -42,9 +42,9 @@ export class NavComponent implements OnInit {
     const url = this.route.snapshot['_routerState'].url;
 
     // dodati sve url-ove odakle treba da se izadje
-    if ( url === '/events/new/insert'
-      || url === '/events/favourites'
-      || url === '/events/admin'
+    if ( url == '/events/new/insert'
+      || url == '/events/favourites'
+      || url == '/events/admin'
       || url.includes('/events/edit/') ) {
       this.router.navigate(['/home']);
     }
