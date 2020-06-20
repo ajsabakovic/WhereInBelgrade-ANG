@@ -17,9 +17,9 @@ export class WeatherComponent implements OnInit {
   }
 
   getWeatherData(){
-    // fetch('http://api.openweathermap.org/data/2.5/weather?id=792680&appid=049b978f0ef25ecaec6846db2ad141cf')
-    // .then(response => response.json())
-    // .then(data => {this.setWeatherData(data); });
+    fetch('http://api.openweathermap.org/data/2.5/weather?id=792680&appid=049b978f0ef25ecaec6846db2ad141cf')
+    .then(response => response.json())
+    .then(data => {this.setWeatherData(data); });
   }
 
   setWeatherData(data){

@@ -19,7 +19,11 @@ export class ContactComponent implements OnInit {
     this.emailService.sendMail(this.email).subscribe(() => {
       this.alertify.success('Uspešno ste poslali poruku!');
     }, error => {
-      this.alertify.error(error);
+      if(this.email.name == "" || this.email.surname == "" || this.email.title == "" || this.email.body == "" || this.email.email=="") 
+        this.alertify.error('Morate uneti sve podatke!');
+      else{
+        this.alertify.error('Došlo je do greške prilikom slanja Vaše poruke!');
+      }
     });
   }
 }
