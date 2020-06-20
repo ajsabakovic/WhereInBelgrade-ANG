@@ -26,7 +26,7 @@ export const appRouter: Routes = [
             resolve: {events: LikedEventsResolver}, canActivate: [AuthGuard]},
     {path: 'events/admin', component: AdminEventsComponent, runGuardsAndResolvers: 'always',  canActivate: [AuthGuard]},
     {path: 'events/:id', component: EventDetailsComponent},
-    {path: 'events/new/insert', component: InsertEventComponent, 
+    {path: 'events/new/insert', component: InsertEventComponent,
         resolve: {kategorije: InsertEventResolver, mesta: MestoInsertResolver}, runGuardsAndResolvers: 'always', canActivate:[AuthGuard]},
     {path: 'events/edit/:id', component: EditEventComponent, resolve: {dogadjaj: EditEventResolver,
         kategorije: InsertEventResolver, mesta: MestoInsertResolver}, runGuardsAndResolvers: 'always', canActivate: [AuthGuard]},
