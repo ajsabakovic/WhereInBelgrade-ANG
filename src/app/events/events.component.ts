@@ -14,6 +14,7 @@ export class EventsComponent implements OnInit {
   @Input() kategorija: string;
   dogadjaji: Dogadjaj[];
   pagination: Pagination;
+  criteria: string;
 
   constructor(private eventsService: EventsService, 
     private alertify: AlertifyService,
@@ -31,15 +32,43 @@ export class EventsComponent implements OnInit {
   }
 
   loadEvents() {
-    this.eventsService.getAll(this.pagination.currentPage, this.pagination.itemsPerPage).subscribe((res: PaginatedResult<Dogadjaj[]>) => {
+    if(this.criteria === undefined){
+      this.pagination.criteria = '';
+    }else{
+      this.pagination.criteria = this.criteria;
+    }
+    this.eventsService.getAll(this.pagination.currentPage, this.pagination.itemsPerPage, this.pagination.criteria).subscribe((res: PaginatedResult<Dogadjaj[]>) => {
       this.dogadjaji = res.result;
     }, error => {
       this.alertify.error(error);
     });
   }
 
+  loadSecond(){
+    if(this.criteria === undefined){
+      this.pagination.criteria = '';
+    }else{
+      this.pagination.criteria = this.criteria;
+    }
+    this.pagination.currentPage = 1;
+    this.eventsService.getAll(this.pagination.currentPage, this.pagination.itemsPerPage, this.pagination.criteria).subscribe((res: PaginatedResult<Dogadjaj[]>) => {
+      this.dogadjaji = res.result;
+      this.pagination = res.paginaton;
+      console.log(res.paginaton.totalItems);
+    }, error => {
+      this.alertify.error(error);
+    });
+  }
+
+
+  
   pageChanged(event: any){
+    if(this.criteria !== undefined){
+      this.pagination.criteria = this.criteria;
+    }
     this.pagination.currentPage = event.page;
+    console.log(this.criteria);
+    console.log(this.pagination.currentPage);
     this.loadEvents();
   }
 

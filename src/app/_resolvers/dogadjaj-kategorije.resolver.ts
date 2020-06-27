@@ -15,7 +15,7 @@ export class DogadjajKategorijeResolver implements Resolve<Dogadjaj[]>{
         private router: Router) {} 
 
         resolve(route: ActivatedRouteSnapshot): Observable<Dogadjaj[]>{
-            return this.eventsService.getEventsByCategory(route.params['kategorija'], this.page, this.itemsPerPage)
+            return this.eventsService.getEventsByCategory(route.params['kategorija'], this.page, this.itemsPerPage, "")
             .pipe(
                 catchError(error => {
                     this.alertify.error('Problem retrieving data');

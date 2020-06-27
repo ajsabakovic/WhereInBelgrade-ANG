@@ -13,7 +13,7 @@ export class EventsService {
   baseUrl = environment.apiUrl + '/kategorija/';
   constructor(private http: HttpClient) { }
 
-  getEventsByCategory(kategorija: any, page?, itemsPerPage?): Observable<PaginatedResult<Dogadjaj[]>>{
+  getEventsByCategory(kategorija: any, page?, itemsPerPage?, criteria?): Observable<PaginatedResult<Dogadjaj[]>>{
     const paginatedResult: PaginatedResult<Dogadjaj[]> = new PaginatedResult<Dogadjaj[]>();
 
     let params = new HttpParams();
@@ -21,6 +21,7 @@ export class EventsService {
     if(page != null && itemsPerPage != null){
       params = params.append('pageNumber', page);
       params = params.append('pageSize', itemsPerPage);
+      params = params.append('criteria', criteria);
     }
 
     return this.http.get<Dogadjaj[]>(this.baseUrl + kategorija + '/dogadjaji', {observe: 'response', params})
@@ -36,7 +37,7 @@ export class EventsService {
   }
 
   // promeni metodu u API controlleru
-  getAll(page?, itemsPerPage?): Observable<PaginatedResult<Dogadjaj[]>>{
+  getAll(page?, itemsPerPage?, criteria?): Observable<PaginatedResult<Dogadjaj[]>>{
     const paginatedResult: PaginatedResult<Dogadjaj[]> = new PaginatedResult<Dogadjaj[]>();
 
     let params = new HttpParams();
@@ -44,6 +45,7 @@ export class EventsService {
     if(page != null && itemsPerPage != null){
       params = params.append('pageNumber', page);
       params = params.append('pageSize', itemsPerPage);
+      params = params.append('criteria', criteria);
     }
 
     return this.http.get<Dogadjaj[]>(this.baseUrl + 'dogadjaji', {observe: 'response', params})

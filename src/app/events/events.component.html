@@ -3,6 +3,10 @@
 
 <div class="pozadina">
   <h1 class="title">Predstojeći događaji</h1>
+  <form class="form-inline pretrazi" #forma="ngForm">
+    <input class="form-control mr-sm-2 criteria" [(ngModel)]="criteria" type="search" name="criteria" placeholder="Pretraži" aria-label="Search">
+    <button class="btn  my-2 my-sm-0" type="submit" (click)="loadSecond()">Pretraži</button>
+  </form>
   <div class="error" *ngIf="!hasEvents()">
       <h2 class="nazalost" >Trenutno nema dogadjaja...</h2>
       <img src="../../../assets/images/error.png" alt="error">

@@ -54,3 +54,46 @@
 .error img{
     width: 50%;
 }
+
+.pretrazi{
+    padding-bottom: 30px!important;
+    display: flex!important;
+    justify-content: center!important;
+}
+
+.pretrazi .criteria{
+    width: 90%;
+    background: transparent;
+    border: 2px solid rgb(240, 97, 89);
+    text-align: center;
+    transition: ease-in-out .4s all;
+}
+
+.pretrazi .criteria:focus{
+    color: rgb(240, 97, 89);
+    outline: none!important;
+}
+
+
+.pretrazi .btn{
+    border: 2px solid rgb(240, 97, 89)!important;
+    background: rgb(240, 97, 89);
+    width: 90%;
+    color: #fff;
+    outline: none!important;
+    transition: ease-in-out .4s all;
+}
+
+.pretrazi .btn:hover{
+    color: rgb(240, 97, 89);
+    background: transparent;
+}
+
+@media(min-width:720px){
+    .pretrazi .criteria{
+        width: 300px;
+    }
+    .pretrazi .btn{
+        width: 200px;
+    }
+}

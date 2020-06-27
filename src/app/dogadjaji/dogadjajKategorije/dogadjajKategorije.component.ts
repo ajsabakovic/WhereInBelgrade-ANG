@@ -14,13 +14,14 @@ export class DogadjajKategorijeComponent implements OnInit {
   @Input() kategorija: string;
   dogadjaji: Dogadjaj[];
   pagination: Pagination;
+  criteria: string;
 
   constructor(private eventsService: EventsService, private alertify: AlertifyService,
     private route: ActivatedRoute) {
       this.route.data.subscribe(data => {
         this.dogadjaji = data['events'].result;
         this.pagination = data['events'].paginaton;
-        console.log(data['events'].pagination)
+        console.log(data['events'].pagination);
       });
      }
 
@@ -35,7 +36,12 @@ export class DogadjajKategorijeComponent implements OnInit {
 
   selectedCategory(){
     console.log(this.kategorija);
-    this.eventsService.getEventsByCategory(this.kategorija, this.pagination.currentPage, this.pagination.itemsPerPage)
+    if(this.criteria === undefined){
+      this.pagination.criteria = '';
+    }else{
+      this.pagination.criteria = this.criteria;
+    }
+    this.eventsService.getEventsByCategory(this.kategorija, this.pagination.currentPage, this.pagination.itemsPerPage, this.pagination.criteria)
     .subscribe((res: PaginatedResult<Dogadjaj[]>) => {
       this.dogadjaji = res.result;
     }, error => {
@@ -47,10 +53,38 @@ export class DogadjajKategorijeComponent implements OnInit {
     return this.dogadjaji !== undefined && this.dogadjaji.length !== 0;
   }
 
-  pageChanged(event: any) {
+  // pageChanged(event: any) {
+  //   this.pagination.currentPage = event.page;
+  //   this.selectedCategory();
+  // }
+
+  pageChanged(event: any){
+    if(this.criteria !== undefined){
+      this.pagination.criteria = this.criteria;
+    }
     this.pagination.currentPage = event.page;
+    console.log(this.criteria);
+    console.log(this.pagination.currentPage);
     this.selectedCategory();
   }
+
+  loadSecond(){
+    if(this.criteria === undefined){
+      this.pagination.criteria = '';
+    }else{
+      this.pagination.criteria = this.criteria;
+    }
+    this.pagination.currentPage = 1;
+    this.eventsService.getEventsByCategory(this.kategorija, this.pagination.currentPage, this.pagination.itemsPerPage, this.pagination.criteria).subscribe((res: PaginatedResult<Dogadjaj[]>) => {
+      this.dogadjaji = res.result;
+      this.pagination = res.paginaton;
+      console.log(res.paginaton.totalItems);
+    }, error => {
+      this.alertify.error(error);
+    });
+  }
+
+
   // loadEvents(){
   //   this.eventsService.getAll().subscribe((dogadjaji: Dogadjaj[]) => {
   //     this.dogadjaji = dogadjaji;

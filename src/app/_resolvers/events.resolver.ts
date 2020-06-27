@@ -18,7 +18,7 @@ export class EventsResolver implements Resolve<Dogadjaj[]>{
     }
 
     resolve(route: ActivatedRouteSnapshot): Observable<Dogadjaj[]>{
-        return this.eventsService.getAll(this.page, this.itemsPerPage)
+        return this.eventsService.getAll(this.page, this.itemsPerPage, "")
         .pipe(
             catchError(error =>{
                 this.alertify.error('Problem retrieving data');

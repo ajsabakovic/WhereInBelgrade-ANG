@@ -120,7 +120,7 @@ export class EditEventComponent implements OnInit {
             control = new FormControl(true);
           }
            // if first item set to true, else false
-          // console.log(i, kat.kategorijaID)
+          console.log(i, kat.kategorijaID)
         });
         if (control === null) {
           control = new FormControl(false);
